@@ -1,16 +1,5 @@
 [
   {
-    "timestamp": "2024-10-24 09:00",
-    "type": "setup",
-    "title": "Timeline initialized",
-    "description": "Activity log timeline created for tracking organization commits.",
-    "files": [
-      "index.html",
-      "script.js",
-      "styles.css"
-    ]
-  },
-  {
     "timestamp": "2026-02-05 05:44",
     "type": "test",
     "title": "Remove old trajectory.py, add test and utility files",
@@ -69,53 +58,5 @@
     "sha": "8e79699",
     "repo": "tidybot-agent-server",
     "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 21:07",
-    "type": "setup",
-    "title": "Initial commit",
-    "description": "Commit by tonylitianyu in tidybot-army-timeline",
-    "files": [
-      "tidybot-army-timeline/"
-    ],
-    "sha": "9c0feaa",
-    "repo": "tidybot-army-timeline",
-    "author": "tonylitianyu"
-  },
-  {
-    "timestamp": "2026-02-05 21:13",
-    "type": "feature",
-    "title": "updated fetch commits",
-    "description": "Commit by tonylitianyu in tidybot-army-timeline",
-    "files": [
-      "tidybot-army-timeline/"
-    ],
-    "sha": "bbc76df",
-    "repo": "tidybot-army-timeline",
-    "author": "tonylitianyu"
-  },
-  {
-    "timestamp": "2026-02-05 21:15",
-    "type": "feature",
-    "title": "added manual update",
-    "description": "Commit by tonylitianyu in tidybot-army-timeline",
-    "files": [
-      "tidybot-army-timeline/"
-    ],
-    "sha": "491eb79",
-    "repo": "tidybot-army-timeline",
-    "author": "tonylitianyu"
-  },
-  {
-    "timestamp": "2026-02-05 21:25",
-    "type": "feature",
-    "title": "Update timeline entries",
-    "description": "Commit by github-actions[bot] in tidybot-army-timeline",
-    "files": [
-      "tidybot-army-timeline/"
-    ],
-    "sha": "998c691",
-    "repo": "tidybot-army-timeline",
-    "author": "github-actions[bot]"
   }
 ]

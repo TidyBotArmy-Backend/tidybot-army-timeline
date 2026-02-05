@@ -68,7 +68,14 @@ jobs:
             // Fetch recent commits from each repo
             const since = skipTimeFilter ? undefined : new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
+            // Get this repo's name to exclude it
+            const thisRepo = process.env.GITHUB_REPOSITORY.split('/')[1];
+            console.log(`Skipping commits from: ${thisRepo}`);
+
             for (const repo of repos) {
+              // Skip this timeline repo
+              if (repo.name === thisRepo) continue;
+
               try {
                 const params = {
                   owner: org,
