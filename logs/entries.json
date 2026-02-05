@@ -4,6 +4,106 @@
     "type": "setup",
     "title": "Timeline initialized",
     "description": "Activity log timeline created for tracking organization commits.",
-    "files": ["index.html", "script.js", "styles.css"]
+    "files": [
+      "index.html",
+      "script.js",
+      "styles.css"
+    ]
+  },
+  {
+    "timestamp": "2026-02-05 05:44",
+    "type": "test",
+    "title": "Remove old trajectory.py, add test and utility files",
+    "description": "Commit by Tidybot in tidybot-agent-server",
+    "files": [
+      "tidybot-agent-server/"
+    ],
+    "sha": "a27cbd4",
+    "repo": "tidybot-agent-server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-05 18:59",
+    "type": "feature",
+    "title": "Add rewind SDK and smooth arm interpolation",
+    "description": "Commit by Tidybot in tidybot-agent-server",
+    "files": [
+      "tidybot-agent-server/"
+    ],
+    "sha": "fa19a4e",
+    "repo": "tidybot-agent-server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-05 19:16",
+    "type": "feature",
+    "title": "Add arm.go_home() method for moving to home position",
+    "description": "Commit by Tidybot in tidybot-agent-server",
+    "files": [
+      "tidybot-agent-server/"
+    ],
+    "sha": "e5f58b0",
+    "repo": "tidybot-agent-server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-05 19:52",
+    "type": "deploy",
+    "title": "Add auto-reset to home on lease release",
+    "description": "Commit by Tidybot in tidybot-agent-server",
+    "files": [
+      "tidybot-agent-server/"
+    ],
+    "sha": "551aae8",
+    "repo": "tidybot-agent-server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-05 20:17",
+    "type": "feature",
+    "title": "Add --no-dashboard flag to disable web dashboard GUI",
+    "description": "Commit by Tidybot in tidybot-agent-server",
+    "files": [
+      "tidybot-agent-server/"
+    ],
+    "sha": "8e79699",
+    "repo": "tidybot-agent-server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-05 21:07",
+    "type": "setup",
+    "title": "Initial commit",
+    "description": "Commit by tonylitianyu in tidybot-army-timeline",
+    "files": [
+      "tidybot-army-timeline/"
+    ],
+    "sha": "9c0feaa",
+    "repo": "tidybot-army-timeline",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-05 21:13",
+    "type": "feature",
+    "title": "updated fetch commits",
+    "description": "Commit by tonylitianyu in tidybot-army-timeline",
+    "files": [
+      "tidybot-army-timeline/"
+    ],
+    "sha": "bbc76df",
+    "repo": "tidybot-army-timeline",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-05 21:15",
+    "type": "feature",
+    "title": "added manual update",
+    "description": "Commit by tonylitianyu in tidybot-army-timeline",
+    "files": [
+      "tidybot-army-timeline/"
+    ],
+    "sha": "491eb79",
+    "repo": "tidybot-army-timeline",
+    "author": "tonylitianyu"
   }
 ]
