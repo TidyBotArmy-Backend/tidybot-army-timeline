@@ -140,7 +140,7 @@ function initRow(rowName) {
 
     // Start at newest entry
     row.currentIndex = row.entries.length - 1;
-    row.renderedRange = { start: 0, end: 0 };
+    row.renderedRange = { start: -1, end: -1 };
     row.isAnimating = false;
 
     updateRenderedCards(rowName);
