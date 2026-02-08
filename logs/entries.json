@@ -286,5 +286,29 @@
     "sha": "22123ee",
     "repo": "tidybot-agent-server",
     "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-08 16:53",
+    "type": "feature",
+    "title": "Add auto-generated system guide endpoint and document missing lease queue endpoi",
+    "description": "Commit by Tidybot in tidybot-agent-server",
+    "files": [
+      "tidybot-agent-server/"
+    ],
+    "sha": "22123ee",
+    "repo": "tidybot-agent-server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-08 21:22",
+    "type": "feature",
+    "title": "added multiagent soul",
+    "description": "Commit by Selina22 in tidybot-templates",
+    "files": [
+      "tidybot-templates/"
+    ],
+    "sha": "115f193",
+    "repo": "tidybot-templates",
+    "author": "Selina22"
   }
 ]
