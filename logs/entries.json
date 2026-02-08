@@ -190,5 +190,41 @@
     "sha": "3dc2978",
     "repo": "tidybot-templates",
     "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-08 05:38",
+    "type": "feature",
+    "title": "Ensure workspace directory exists before copying templates",
+    "description": "Commit by tonylitianyu in tidybot-templates",
+    "files": [
+      "tidybot-templates/"
+    ],
+    "sha": "f9ff2c5",
+    "repo": "tidybot-templates",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-08 05:40",
+    "type": "fix",
+    "title": "Fix config command: use 'set' instead of nonexistent 'patch' subcommand",
+    "description": "Commit by tonylitianyu in tidybot-templates",
+    "files": [
+      "tidybot-templates/"
+    ],
+    "sha": "63eb488",
+    "repo": "tidybot-templates",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-08 06:06",
+    "type": "fix",
+    "title": "Fix setup message: use 'openclaw dashboard' instead of 'openclaw chat'",
+    "description": "Commit by tonylitianyu in tidybot-templates",
+    "files": [
+      "tidybot-templates/"
+    ],
+    "sha": "8d5ff6c",
+    "repo": "tidybot-templates",
+    "author": "tonylitianyu"
   }
 ]
