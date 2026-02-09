@@ -39,21 +39,49 @@ jobs:
 
             console.log(`Found ${repos.length} repos in ${org}`);
 
+            // Filter out non-skill repos
+            const ignoredRepos = ['wishlist', 'TestRepo', '.github'];
+            const filteredRepos = repos.filter(r => !ignoredRepos.includes(r.name));
+            console.log(`${filteredRepos.length} repos after filtering`);
+
+            // Fetch skill_stats.json metadata from each repo
+            const metadataMap = {};
+            for (const repo of filteredRepos) {
+              try {
+                const { data } = await github.rest.repos.getContent({
+                  owner: org,
+                  repo: repo.name,
+                  path: 'skill_stats.json'
+                });
+                const content = Buffer.from(data.content, 'base64').toString('utf8');
+                metadataMap[repo.name] = JSON.parse(content);
+                console.log(`Found skill_stats.json in ${repo.name}`);
+              } catch (e) {
+                console.log(`No skill_stats.json in ${repo.name}, using defaults`);
+              }
+            }
+
             // Map to timeline-friendly format, sorted by creation time (oldest first)
-            const entries = repos
+            const entries = filteredRepos
               .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
-              .map((repo, index) => ({
-                id: String(index + 1).padStart(3, '0'),
-                name: repo.name,
-                description: repo.description || 'No description',
-                created_at: repo.created_at,
-                updated_at: repo.updated_at,
-                html_url: repo.html_url,
-                language: repo.language || 'Unknown',
-                stars: repo.stargazers_count,
-                is_private: repo.private,
-                default_branch: repo.default_branch
-              }));
+              .map((repo, index) => {
+                const meta = metadataMap[repo.name] || {};
+                return {
+                  id: String(index + 1).padStart(3, '0'),
+                  name: repo.name,
+                  description: repo.description || 'No description',
+                  created_at: repo.created_at,
+                  updated_at: repo.updated_at,
+                  html_url: repo.html_url,
+                  language: repo.language || 'Unknown',
+                  stars: repo.stargazers_count,
+                  is_private: repo.private,
+                  default_branch: repo.default_branch,
+                  success_rate: meta.success_rate ?? 0,
+                  total_trials: meta.total_trials ?? 0,
+                  institutions_tested: meta.institutions_tested ?? 0
+                };
+              });
 
             // Write repos.json
             fs.writeFileSync('logs/repos.json', JSON.stringify(entries, null, 2));

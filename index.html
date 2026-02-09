@@ -15,7 +15,7 @@
     <div class="scanlines"></div>
 
     <div class="smooth-scroll-wrapper">
-        <!-- Warning banner - EVA style -->
+        <!-- Warning banner -->
         <div class="marquee-banner">
             <div class="marquee-track">
                 <span class="warning-text">⚠ WARNING</span>
@@ -34,7 +34,6 @@
                 <span class="separator">◈</span>
                 <span>MONITORING ACTIVE</span>
                 <span class="separator">◈</span>
-                <!-- Duplicate for seamless loop -->
                 <span class="warning-text">⚠ WARNING</span>
                 <span class="separator">◈</span>
                 <span>AUTONOMOUS AGENT ACTIVE</span>
@@ -85,137 +84,47 @@
             </section>
 
             <!-- ==============================
-                 FRONTEND ROW
+                 FRONTEND GALLERY
                  ============================== -->
-            <section class="timeline-row" data-row="frontend">
-                <div class="row-header">
-                    <span class="row-label">Frontend</span>
-                    <span class="row-repo">TidybotArmy</span>
+            <section class="gallery-section" data-gallery="frontend">
+                <div class="gallery-header">
+                    <span class="gallery-label">Frontend</span>
+                    <span class="gallery-repo">TidybotArmy</span>
+                    <span class="gallery-count"></span>
                 </div>
-
-                <!-- Entry indicator -->
-                <div class="phase-indicator">
-                    <div class="phase-number">
-                        <span class="hash-symbol">#</span>
-                        <span class="current-phase">---</span>
-                    </div>
-                    <div class="phase-name">
-                        <span class="phase-label">Entry Type</span>
-                        <span class="phase-title-text">—</span>
-                    </div>
+                <div class="gallery-viewport">
+                    <div class="gallery-track"></div>
                 </div>
-
-                <!-- Timeline + cards viewport -->
-                <div class="events-viewport">
-                    <div class="timeline-bar">
-                        <div class="timeline-line">
-                            <div class="robot">
-                                <div class="robot-antenna"></div>
-                                <div class="robot-head">
-                                    <div class="robot-eye left"></div>
-                                    <div class="robot-eye right"></div>
-                                </div>
-                                <div class="robot-body"></div>
-                                <div class="robot-wheel left"></div>
-                                <div class="robot-wheel right"></div>
-                            </div>
-                        </div>
+                <div class="gallery-nav">
+                    <div class="gallery-progress">
+                        <div class="gallery-progress-fill"></div>
                     </div>
-                    <div class="events-slider">
-                        <div class="timeline-nodes"></div>
-                        <div class="cards-row"></div>
-                    </div>
+                    <span class="gallery-hint">
+                        <span class="hint-icon">◈</span> scroll or drag to explore
+                    </span>
                 </div>
-
-                <!-- Empty state -->
-                <div class="row-empty">
-                    <span>No entries yet — frontend repo not configured</span>
-                </div>
-
-                <!-- Navigation (hidden when empty) -->
-                <nav class="timeline-nav" style="display: none;">
-                    <button class="nav-btn prev" aria-label="Previous entry" disabled>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M19 12H5M12 19l-7-7 7-7"/>
-                        </svg>
-                        <span class="btn-label">Prev</span>
-                    </button>
-                    <div class="nav-counter">
-                        <span class="counter-label">Entry</span>
-                        <span class="counter-current">#001</span>
-                    </div>
-                    <button class="nav-btn next" aria-label="Next entry">
-                        <span class="btn-label">Next</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </nav>
             </section>
 
             <!-- ==============================
-                 BACKEND ROW
+                 BACKEND GALLERY
                  ============================== -->
-            <section class="timeline-row" data-row="backend">
-                <div class="row-header">
-                    <span class="row-label">Backend</span>
-                    <span class="row-repo">tidybot-agent-server</span>
+            <section class="gallery-section" data-gallery="backend">
+                <div class="gallery-header">
+                    <span class="gallery-label">Backend</span>
+                    <span class="gallery-repo">tidybot-agent-server</span>
+                    <span class="gallery-count"></span>
                 </div>
-
-                <!-- Entry indicator -->
-                <div class="phase-indicator">
-                    <div class="phase-number">
-                        <span class="hash-symbol">#</span>
-                        <span class="current-phase">001</span>
-                    </div>
-                    <div class="phase-name">
-                        <span class="phase-label">Entry Type</span>
-                        <span class="phase-title-text">Setup</span>
-                    </div>
+                <div class="gallery-viewport">
+                    <div class="gallery-track"></div>
                 </div>
-
-                <!-- Timeline + cards viewport -->
-                <div class="events-viewport">
-                    <div class="timeline-bar">
-                        <div class="timeline-line">
-                            <div class="robot robot-alt">
-                                <div class="robot-alt-flag"></div>
-                                <div class="robot-alt-head">
-                                    <div class="robot-alt-visor"></div>
-                                </div>
-                                <div class="robot-alt-body">
-                                    <div class="robot-alt-chest"></div>
-                                </div>
-                                <div class="robot-wheel left"></div>
-                                <div class="robot-wheel right"></div>
-                            </div>
-                        </div>
+                <div class="gallery-nav">
+                    <div class="gallery-progress">
+                        <div class="gallery-progress-fill"></div>
                     </div>
-                    <div class="events-slider">
-                        <div class="timeline-nodes"></div>
-                        <div class="cards-row"></div>
-                    </div>
+                    <span class="gallery-hint">
+                        <span class="hint-icon">◈</span> scroll or drag to explore
+                    </span>
                 </div>
-
-                <!-- Navigation -->
-                <nav class="timeline-nav">
-                    <button class="nav-btn prev" aria-label="Previous entry" disabled>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M19 12H5M12 19l-7-7 7-7"/>
-                        </svg>
-                        <span class="btn-label">Prev</span>
-                    </button>
-                    <div class="nav-counter">
-                        <span class="counter-label">Entry</span>
-                        <span class="counter-current">#001</span>
-                    </div>
-                    <button class="nav-btn next" aria-label="Next entry">
-                        <span class="btn-label">Next</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </nav>
             </section>
 
             <!-- Footer -->
@@ -225,6 +134,17 @@
                     <span class="footer-year">Agent Log v1.0</span>
                 </div>
             </footer>
+        </div>
+    </div>
+
+    <!-- ==============================
+         POPUP OVERLAY (shared)
+         ============================== -->
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-backdrop" id="popup-backdrop"></div>
+        <div class="popup-card">
+            <button class="popup-close" id="popup-close">✕</button>
+            <div class="popup-inner" id="popup-inner"></div>
         </div>
     </div>
 
