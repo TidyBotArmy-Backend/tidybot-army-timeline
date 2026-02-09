@@ -44,28 +44,27 @@ jobs:
             const filteredRepos = repos.filter(r => !ignoredRepos.includes(r.name));
             console.log(`${filteredRepos.length} repos after filtering`);
 
-            // Fetch skill_stats.json metadata from each repo
-            const metadataMap = {};
-            for (const repo of filteredRepos) {
-              try {
-                const { data } = await github.rest.repos.getContent({
-                  owner: org,
-                  repo: repo.name,
-                  path: 'skill_stats.json'
-                });
-                const content = Buffer.from(data.content, 'base64').toString('utf8');
-                metadataMap[repo.name] = JSON.parse(content);
-                console.log(`Found skill_stats.json in ${repo.name}`);
-              } catch (e) {
-                console.log(`No skill_stats.json in ${repo.name}, using defaults`);
-              }
+            // Fetch catalog.json from wishlist repo for skill metadata
+            let catalog = {};
+            try {
+              const { data } = await github.rest.repos.getContent({
+                owner: org,
+                repo: 'wishlist',
+                path: 'catalog.json'
+              });
+              const content = Buffer.from(data.content, 'base64').toString('utf8');
+              const parsed = JSON.parse(content);
+              catalog = parsed.skills || {};
+              console.log(`Loaded catalog.json with ${Object.keys(catalog).length} skills`);
+            } catch (e) {
+              console.log(`Failed to fetch catalog.json: ${e.message}`);
             }
 
             // Map to timeline-friendly format, sorted by creation time (oldest first)
             const entries = filteredRepos
               .sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
               .map((repo, index) => {
-                const meta = metadataMap[repo.name] || {};
+                const meta = catalog[repo.name] || {};
                 return {
                   id: String(index + 1).padStart(3, '0'),
                   name: repo.name,
