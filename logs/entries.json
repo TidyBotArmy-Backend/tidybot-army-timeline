@@ -480,6 +480,42 @@
     "author": "kaitianchao"
   },
   {
+    "timestamp": "2026-02-09 15:12",
+    "type": "feature",
+    "title": "Add camera auto-reconnect and pipeline stopped detection",
+    "description": "Commit by Tidybot in camera_realsense_service",
+    "files": [
+      "camera_realsense_service/"
+    ],
+    "sha": "48b32ff",
+    "repo": "camera_realsense_service",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-09 15:12",
+    "type": "feature",
+    "title": "Extract ARM_HOME_Q constant and gracefully skip arm on rewind failure",
+    "description": "Commit by Tidybot in agent_system_logger",
+    "files": [
+      "agent_system_logger/"
+    ],
+    "sha": "f87caf3",
+    "repo": "agent_system_logger",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-09 15:48",
+    "type": "feature",
+    "title": "change read register to solve activation problem",
+    "description": "Commit by Tidybot in gripper_robotiq_service",
+    "files": [
+      "gripper_robotiq_service/"
+    ],
+    "sha": "617825a",
+    "repo": "gripper_robotiq_service",
+    "author": "Tidybot"
+  },
+  {
     "timestamp": "2026-02-09 16:11",
     "type": "test",
     "title": "Add lease queue system, SDK motion improvements, service dashboard overhaul, and",
@@ -489,6 +525,30 @@
     ],
     "sha": "2f4ebbb",
     "repo": "tidybot-agent-server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-09 16:11",
+    "type": "test",
+    "title": "Add lease queue system, SDK motion improvements, service dashboard overhaul, and",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "2f4ebbb",
+    "repo": "agent_server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-09 16:11",
+    "type": "docs",
+    "title": "Add YOLO README and capture images",
+    "description": "Commit by Tidybot in camera_realsense_service",
+    "files": [
+      "camera_realsense_service/"
+    ],
+    "sha": "9b02876",
+    "repo": "camera_realsense_service",
     "author": "Tidybot"
   },
   {
@@ -502,6 +562,18 @@
     "sha": "6417f0a",
     "repo": "tidybot-agent-server",
     "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-09 17:18",
+    "type": "feature",
+    "title": "update frame clarification",
+    "description": "Commit by tonylitianyu in tidybot-templates",
+    "files": [
+      "tidybot-templates/"
+    ],
+    "sha": "18d1e7a",
+    "repo": "tidybot-templates",
+    "author": "tonylitianyu"
   },
   {
     "timestamp": "2026-02-09 18:51",
