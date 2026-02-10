@@ -2,9 +2,9 @@
 name: Fetch Repos
 
 on:
-  # Run daily as fallback
+  # Run every 30 minutes
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '*/30 * * * *'
   # Allow manual trigger
   workflow_dispatch:
   # Triggered by org webhooks on new repo creation
