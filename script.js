@@ -29,7 +29,7 @@ const HEX_SIZES = {
 
 function getLayoutConfig() {
     const w = window.innerWidth;
-    if (w <= 600)  return { sizeScale: 0.55, baseSpacing: 110, galleryH: 440, padX: 50,  minGap: 14, lineGap: 14 };
+    if (w <= 600)  return { sizeScale: 0.65, baseSpacing: 120, galleryH: 480, padX: 130, minGap: 14, lineGap: 14, minSizeClass: 'md' };
     if (w <= 968)  return { sizeScale: 0.72, baseSpacing: 145, galleryH: 550, padX: 90,  minGap: 18, lineGap: 16 };
     return                { sizeScale: 1,    baseSpacing: 190, galleryH: 700, padX: 160, minGap: 24, lineGap: 20 };
 }
@@ -100,25 +100,36 @@ function prepareEntries(entries) {
 // LAYOUT: HEX POSITIONING
 // ============================================
 
-function getHexSizeClass(entry, index) {
+const SIZE_ORDER = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+function getHexSizeClass(entry, index, cfg) {
     const hash = ((index * 2654435761) >>> 0) % 100;
+    let size;
     switch (entry.type) {
         case 'feature': case 'deploy':
-            if (hash < 35) return 'xl';
-            if (hash < 70) return 'lg';
-            return 'md';
+            if (hash < 35) size = 'xl';
+            else if (hash < 70) size = 'lg';
+            else size = 'md';
+            break;
         case 'setup': case 'repo': case 'refactor':
-            if (hash < 10) return 'xl';
-            if (hash < 30) return 'lg';
-            if (hash < 65) return 'md';
-            if (hash < 85) return 'sm';
-            return 'xs';
+            if (hash < 10) size = 'xl';
+            else if (hash < 30) size = 'lg';
+            else if (hash < 65) size = 'md';
+            else if (hash < 85) size = 'sm';
+            else size = 'xs';
+            break;
         default:
-            if (hash < 5) return 'lg';
-            if (hash < 25) return 'md';
-            if (hash < 60) return 'sm';
-            return 'xs';
+            if (hash < 5) size = 'lg';
+            else if (hash < 25) size = 'md';
+            else if (hash < 60) size = 'sm';
+            else size = 'xs';
+            break;
     }
+    if (cfg.minSizeClass) {
+        const minIdx = SIZE_ORDER.indexOf(cfg.minSizeClass);
+        if (SIZE_ORDER.indexOf(size) < minIdx) size = cfg.minSizeClass;
+    }
+    return size;
 }
 
 function getScaledSize(sizeClass, cfg) {
@@ -157,7 +168,7 @@ function computeLayout(entries, cfg) {
     const positions = [];
 
     entries.forEach((entry, i) => {
-        const sizeClass = getHexSizeClass(entry, i);
+        const sizeClass = getHexSizeClass(entry, i, cfg);
         const size = getScaledSize(sizeClass, cfg);
         const y = computeHexY(i, size.h, cfg);
 
@@ -252,7 +263,10 @@ function renderGallery(name) {
         const typeLabel = typeConfig[entry.type]?.label || entry.type;
         const dateStr = entry.timestamp ? entry.timestamp.split(' ')[0].slice(5) : '';
         const title = entry.title || 'Untitled';
-        const maxLen = { xl: 44, lg: 36, md: 28, sm: 20, xs: 14 }[hex.sizeClass] || 28;
+        const isMobile = cfg.sizeScale < 0.7;
+        const maxLen = isMobile
+            ? { xl: 34, lg: 28, md: 22, sm: 16, xs: 12 }[hex.sizeClass] || 22
+            : { xl: 44, lg: 36, md: 28, sm: 20, xs: 14 }[hex.sizeClass] || 28;
         const titleDisplay = title.length > maxLen ? title.slice(0, maxLen - 2) + '…' : title;
         const repoName = entry.repo ? entry.repo.replace('tidybot-', '') : '';
         const floatDelay = ((i * 0.7) % 5).toFixed(1);
@@ -271,7 +285,7 @@ function renderGallery(name) {
                         <span class="hex-type" style="color:${typeColor};">${typeLabel}</span>
                         <h3 class="hex-title">${titleDisplay}</h3>
                         <span class="hex-date">${dateStr}</span>
-                        ${entry.success_rate != null ? `<span class="hex-rate">Success ${entry.success_rate}%</span>` : ''}
+                        ${entry.success_rate != null ? `<span class="hex-rate"><span class="hex-rate-label">Success </span>${entry.success_rate}%</span>` : ''}
                         ${repoName ? `<span class="hex-repo">${repoName}</span>` : ''}
                     </div>
                 </div>

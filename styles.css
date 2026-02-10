@@ -1405,13 +1405,75 @@ body {
     }
 
     .gallery-viewport {
-        height: 440px;
+        height: 480px;
     }
 
     .gallery-header {
         flex-wrap: wrap;
         gap: 0.5rem;
     }
+
+    /* --- Mobile hex: only title + rate number --- */
+    .hex-content {
+        padding: 26% 14% 26%;
+    }
+
+    .hex-rate-label {
+        display: none;
+    }
+
+    /* Hide type, date, repo — compound selectors to beat desktop specificity */
+    .hex-card.hex-xl .hex-type,
+    .hex-card.hex-lg .hex-type,
+    .hex-card.hex-md .hex-type,
+    .hex-card.hex-sm .hex-type,
+    .hex-card.hex-xs .hex-type,
+    .hex-card .hex-type { display: none; }
+
+    .hex-card.hex-xl .hex-date,
+    .hex-card.hex-lg .hex-date,
+    .hex-card.hex-md .hex-date,
+    .hex-card.hex-sm .hex-date,
+    .hex-card.hex-xs .hex-date,
+    .hex-card .hex-date { display: none; }
+
+    .hex-card.hex-xl .hex-repo,
+    .hex-card.hex-lg .hex-repo,
+    .hex-card.hex-md .hex-repo,
+    .hex-card.hex-sm .hex-repo,
+    .hex-card.hex-xs .hex-repo,
+    .hex-card .hex-repo { display: none; }
+
+    /* Title + rate base */
+    .hex-card .hex-title {
+        font-size: 0.62rem;
+        -webkit-line-clamp: 2;
+        margin-bottom: 0.2rem;
+    }
+
+    .hex-card .hex-rate {
+        font-size: 0.5rem;
+    }
+
+    /* XL on mobile */
+    .hex-card.hex-xl .hex-title { font-size: 0.8rem; -webkit-line-clamp: 3; }
+    .hex-card.hex-xl .hex-rate { font-size: 0.6rem; }
+
+    /* LG on mobile */
+    .hex-card.hex-lg .hex-title { font-size: 0.7rem; -webkit-line-clamp: 2; }
+    .hex-card.hex-lg .hex-rate { font-size: 0.55rem; }
+
+    /* MD on mobile */
+    .hex-card.hex-md .hex-title { font-size: 0.62rem; -webkit-line-clamp: 2; }
+    .hex-card.hex-md .hex-rate { font-size: 0.5rem; }
+
+    /* SM on mobile */
+    .hex-card.hex-sm .hex-title { font-size: 0.52rem; -webkit-line-clamp: 1; }
+    .hex-card.hex-sm .hex-rate { font-size: 0.44rem; }
+
+    /* XS on mobile */
+    .hex-card.hex-xs .hex-title { font-size: 0.44rem; -webkit-line-clamp: 1; }
+    .hex-card.hex-xs .hex-rate { font-size: 0.38rem; }
 
     .popup-card {
         padding: 1.25rem;
