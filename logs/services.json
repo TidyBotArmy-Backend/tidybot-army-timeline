@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "id": "001",
+    "name": "agent_server",
+    "description": "Unified API server for AI agents — safety, rewind, code execution",
+    "created_at": "2026-02-05T19:59:44Z",
+    "updated_at": "2026-02-09T20:01:35Z",
+    "html_url": "https://github.com/TidyBot-Services/agent_server",
+    "language": "Python",
+    "stars": 0,
+    "is_private": true,
+    "default_branch": "main"
+  },
+  {
+    "id": "002",
+    "name": "arm_franka_service",
+    "description": "Franka Panda arm control server",
+    "created_at": "2026-02-05T22:19:05Z",
+    "updated_at": "2026-02-09T20:02:01Z",
+    "html_url": "https://github.com/TidyBot-Services/arm_franka_service",
+    "language": "C++",
+    "stars": 0,
+    "is_private": true,
+    "default_branch": "main"
+  },
+  {
+    "id": "003",
+    "name": "gripper_robotiq_service",
+    "description": "Robotiq gripper control server",
+    "created_at": "2026-02-05T22:24:48Z",
+    "updated_at": "2026-02-10T03:59:34Z",
+    "html_url": "https://github.com/TidyBot-Services/gripper_robotiq_service",
+    "language": "Python",
+    "stars": 0,
+    "is_private": true,
+    "default_branch": "main"
+  },
+  {
+    "id": "004",
+    "name": "backend_wishlist",
+    "description": "A repo that frontend agents use to send wishlist to backend agents",
+    "created_at": "2026-02-09T00:54:08Z",
+    "updated_at": "2026-02-09T03:17:31Z",
+    "html_url": "https://github.com/TidyBot-Services/backend_wishlist",
+    "language": "Unknown",
+    "stars": 0,
+    "is_private": false,
+    "default_branch": "main"
+  },
+  {
+    "id": "005",
+    "name": "base_tidybot_service",
+    "description": "Tidybot base server",
+    "created_at": "2026-02-09T19:49:15Z",
+    "updated_at": "2026-02-10T03:59:34Z",
+    "html_url": "https://github.com/TidyBot-Services/base_tidybot_service",
+    "language": "Python",
+    "stars": 0,
+    "is_private": true,
+    "default_branch": "main"
+  },
+  {
+    "id": "006",
+    "name": "camera_realsense_service",
+    "description": "RealSense camera server",
+    "created_at": "2026-02-09T19:49:40Z",
+    "updated_at": "2026-02-09T20:02:10Z",
+    "html_url": "https://github.com/TidyBot-Services/camera_realsense_service",
+    "language": "Python",
+    "stars": 0,
+    "is_private": true,
+    "default_branch": "main"
+  },
+  {
+    "id": "007",
+    "name": "agent_system_logger",
+    "description": "Agent system logger — trajectory recording and rewind",
+    "created_at": "2026-02-09T19:49:59Z",
+    "updated_at": "2026-02-09T20:01:44Z",
+    "html_url": "https://github.com/TidyBot-Services/agent_system_logger",
+    "language": "Python",
+    "stars": 0,
+    "is_private": true,
+    "default_branch": "main"
+  }
+]
