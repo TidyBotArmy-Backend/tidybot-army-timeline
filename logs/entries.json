@@ -648,6 +648,18 @@
     "author": "Tidybot"
   },
   {
+    "timestamp": "2026-02-09 16:11",
+    "type": "test",
+    "title": "Add lease queue system, SDK motion improvements, service dashboard overhaul, and",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "2f4ebbb",
+    "repo": "agent_server",
+    "author": "Tidybot"
+  },
+  {
     "timestamp": "2026-02-09 17:10",
     "type": "feature",
     "title": "Lower minimum motion duration from 2.0s to 0.5s for faster small moves",
