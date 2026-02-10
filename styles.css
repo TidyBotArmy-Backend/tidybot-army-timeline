@@ -375,18 +375,44 @@ body {
 .gallery-repo {
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    color: var(--color-gray);
+    color: var(--color-warning);
     letter-spacing: 0.1em;
     padding: 0.3rem 0.6rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-warning-dim);
     clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
     text-decoration: none;
     transition: color var(--duration-fast), border-color var(--duration-fast);
 }
 
 .gallery-repo:hover {
-    color: var(--color-warning);
+    color: var(--color-warning-bright);
     border-color: var(--color-warning);
+    text-shadow: 0 0 10px var(--color-warning);
+}
+
+.gallery-wishlist {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-green);
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--color-green-dim);
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+    text-decoration: none;
+    transition: color var(--duration-fast), border-color var(--duration-fast);
+    animation: wishlistBlink 2s ease-in-out infinite;
+}
+
+.gallery-wishlist:hover {
+    color: var(--color-green);
+    border-color: var(--color-green);
+    text-shadow: 0 0 10px var(--color-green);
+    animation: none;
+}
+
+@keyframes wishlistBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
 }
 
 .gallery-count {

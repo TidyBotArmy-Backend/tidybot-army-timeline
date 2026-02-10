@@ -56,11 +56,14 @@ function classifyServiceRepo(name) {
     return 'software_service';
 }
 
+const IGNORED_REPOS = ['wishlist', 'backend_wishlist'];
+
 async function loadRepos(file) {
     try {
         const r = await fetch(file);
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        const repos = await r.json();
+        const allRepos = await r.json();
+        const repos = allRepos.filter(repo => !IGNORED_REPOS.includes(repo.name));
         return repos.map((repo, i) => ({
             id: String(i + 1).padStart(3, '0'),
             timestamp: repo.created_at
