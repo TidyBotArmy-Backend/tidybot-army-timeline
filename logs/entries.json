@@ -924,6 +924,30 @@
     "author": "tonylitianyu"
   },
   {
+    "timestamp": "2026-02-10 18:46",
+    "type": "feature",
+    "title": "Merge branch 'master' of https://github.com/TidyBotArmy-Backend/tidybot-template",
+    "description": "Commit by tonylitianyu in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "7c971d1",
+    "repo": "Tidybot-Universe",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-10 19:12",
+    "type": "feature",
+    "title": "Add agent server safety section, wishlists, hardware flexibility, services dev w",
+    "description": "Commit by Tidybot in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "4090d82",
+    "repo": "Tidybot-Universe",
+    "author": "Tidybot"
+  },
+  {
     "timestamp": "2026-02-10 19:12",
     "type": "feature",
     "title": "Add agent server safety section, wishlists, hardware flexibility, services dev w",
@@ -1137,6 +1161,30 @@
     ],
     "sha": "f9e2a36",
     "repo": "agent_server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-11 15:32",
+    "type": "fix",
+    "title": "Fix dashboard camera button to point to camera dashboard on port 5581",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "d81e0ce",
+    "repo": "agent_server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-11 15:32",
+    "type": "feature",
+    "title": "Default camera dashboard server host to wireless IP (10.102.253.246)",
+    "description": "Commit by Tidybot in camera_realsense_service",
+    "files": [
+      "camera_realsense_service/"
+    ],
+    "sha": "d33720c",
+    "repo": "camera_realsense_service",
     "author": "Tidybot"
   }
 ]
