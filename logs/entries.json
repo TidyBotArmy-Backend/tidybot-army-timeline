@@ -1270,5 +1270,17 @@
     "sha": "0404c74",
     "repo": "Tidybot-Universe",
     "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-12 19:15",
+    "type": "feature",
+    "title": "Restructure workspace: replace SOUL.md with MISSION.md for organic skill flow",
+    "description": "Commit by Yifei Simon Shao in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "8d18adc",
+    "repo": "Tidybot-Universe",
+    "author": "Yifei Simon Shao"
   }
 ]
