@@ -161,6 +161,29 @@
         </div>
     </div>
 
+    <!-- Rounded hex clip-path (objectBoundingBox so it scales to any size) -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <clipPath id="hex-clip-rounded" clipPathUnits="objectBoundingBox">
+                <path d="
+                    M 0.425 0.0375
+                    Q 0.5 0, 0.575 0.0375
+                    L 0.925 0.2125
+                    Q 1 0.25, 1 0.325
+                    L 1 0.675
+                    Q 1 0.75, 0.925 0.7875
+                    L 0.575 0.9625
+                    Q 0.5 1, 0.425 0.9625
+                    L 0.075 0.7875
+                    Q 0 0.75, 0 0.675
+                    L 0 0.325
+                    Q 0 0.25, 0.075 0.2125
+                    Z
+                "/>
+            </clipPath>
+        </defs>
+    </svg>
+
     <script src="script.js"></script>
 </body>
 </html>
