@@ -75,7 +75,7 @@ jobs:
                 return contents
                   .filter(f => /\.(jpg|jpeg|png|gif|webp)$/i.test(f.name))
                   .sort((a, b) => a.name.localeCompare(b.name))
-                  .slice(0, 5)
+                  .slice(0, 10)
                   .map(f => f.download_url);
               } catch (e) {
                 return [];

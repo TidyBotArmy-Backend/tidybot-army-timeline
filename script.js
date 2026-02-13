@@ -455,16 +455,29 @@ function openPopup(galleryName, index) {
 
     let trialHTML = '';
     if (entry.trial_images && entry.trial_images.length > 0) {
-        const thumbs = entry.trial_images.map((url, i) =>
-            `<div class="trial-thumb${i === 0 ? ' active' : ''}" data-index="${i}" style="background-image:url(${url});"></div>`
+        const imgs = entry.trial_images;
+        // Split into wrist (first half) and base (second half) rows
+        const half = Math.ceil(imgs.length / 2);
+        const wristImgs = imgs.slice(0, half);
+        const baseImgs = imgs.slice(half);
+
+        const makeRow = (list, offset) => list.map((url, i) =>
+            `<div class="trial-thumb${offset + i === 0 ? ' active' : ''}" data-index="${offset + i}" style="background-image:url(${url});"></div>`
         ).join('');
+
+        const wristRow = wristImgs.length > 0
+            ? `<span class="trial-row-label">Wrist Cam</span><div class="trial-strip">${makeRow(wristImgs, 0)}</div>` : '';
+        const baseRow = baseImgs.length > 0
+            ? `<span class="trial-row-label">Base Cam</span><div class="trial-strip">${makeRow(baseImgs, half)}</div>` : '';
+
         trialHTML = `<div class="popup-trial-gallery">
             <span class="popup-files-label">Successful Trial</span>
             <div class="trial-hero">
-                <img class="trial-hero-img" src="${entry.trial_images[0]}" alt="Trial photo 1">
-                <span class="trial-counter">1 / ${entry.trial_images.length}</span>
+                <img class="trial-hero-img" src="${imgs[0]}" alt="Trial photo 1">
+                <span class="trial-counter">1 / ${imgs.length}</span>
             </div>
-            <div class="trial-strip">${thumbs}</div>
+            ${wristRow}
+            ${baseRow}
         </div>`;
     }
 
