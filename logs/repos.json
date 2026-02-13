@@ -164,7 +164,7 @@
     "name": "pick-up-object",
     "description": "IBVS visual servoing to pick up objects from the ground",
     "created_at": "2026-02-11T02:23:10Z",
-    "updated_at": "2026-02-13T23:20:17Z",
+    "updated_at": "2026-02-13T23:37:31Z",
     "html_url": "https://github.com/Tidybot-Skills/pick-up-object",
     "language": "Python",
     "stars": 0,
@@ -174,11 +174,16 @@
     "total_trials": 9,
     "institutions_tested": 1,
     "trial_images": [
-      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/1.jpg",
-      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/2.jpg",
-      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/3.jpg",
-      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/4.jpg",
-      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/5.jpg"
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/01_wrist.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/02_wrist.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/03_wrist.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/04_wrist.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/05_wrist.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/06_base.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/07_base.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/08_base.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/09_base.jpg",
+      "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/10_base.jpg"
     ]
   },
   {
