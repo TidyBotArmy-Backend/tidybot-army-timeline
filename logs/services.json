@@ -4,11 +4,11 @@
     "name": "agent_server",
     "description": "No description",
     "created_at": "2026-02-05T19:59:44Z",
-    "updated_at": "2026-02-13T03:55:15Z",
+    "updated_at": "2026-02-13T15:51:58Z",
     "html_url": "https://github.com/TidyBot-Services/agent_server",
     "language": "Python",
     "stars": 0,
-    "is_private": true,
+    "is_private": false,
     "default_branch": "master"
   },
   {
@@ -76,11 +76,11 @@
     "name": "agent_system_logger",
     "description": "Agent system logger",
     "created_at": "2026-02-09T19:49:59Z",
-    "updated_at": "2026-02-09T20:01:44Z",
+    "updated_at": "2026-02-13T15:52:52Z",
     "html_url": "https://github.com/TidyBot-Services/agent_system_logger",
     "language": "Python",
     "stars": 0,
-    "is_private": true,
+    "is_private": false,
     "default_branch": "master"
   }
 ]
