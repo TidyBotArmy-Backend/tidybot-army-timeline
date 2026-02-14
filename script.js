@@ -895,6 +895,7 @@ const TAGLINES = [
     'Slurm Server for your Tidybot',
     'Automate 90 % of your Experiments',
     'Agent Centric Hardware Platform',
+    'Bring the Lobster into the Physical World',
 ];
 
 function initTaglineRotator() {
