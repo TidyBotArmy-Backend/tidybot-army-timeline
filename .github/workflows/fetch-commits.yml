@@ -126,7 +126,8 @@ jobs:
             // Normalize legacy repo names
             const REPO_RENAMES = {
               'tidybot-agent-server': 'agent_server',
-              'gripper_server': 'gripper_robotiq_service'
+              'gripper_server': 'gripper_robotiq_service',
+              'backend_wishlist': 'services_wishlist'
             };
             for (const e of entries) {
               const canonical = REPO_RENAMES[e.repo];
