@@ -1198,5 +1198,17 @@
     "sha": "eaec5ac",
     "repo": "Tidybot-Universe",
     "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-14 07:44",
+    "type": "feature",
+    "title": "Mark grounded-sam2, graspgen, foundation-stereo as done",
+    "description": "Commit by qifei-c in backend_wishlist",
+    "files": [
+      "backend_wishlist/"
+    ],
+    "sha": "c244f57",
+    "repo": "backend_wishlist",
+    "author": "qifei-c"
   }
 ]
