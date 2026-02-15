@@ -1462,5 +1462,17 @@
     "sha": "a85c108",
     "repo": "agent_server",
     "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-15 17:08",
+    "type": "setup",
+    "title": "Add agent server to ecosystem table and setup instructions",
+    "description": "Commit by Tidybot in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "4737a8d",
+    "repo": "Tidybot-Universe",
+    "author": "Tidybot"
   }
 ]
