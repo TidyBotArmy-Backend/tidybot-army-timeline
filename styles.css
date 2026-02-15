@@ -461,6 +461,112 @@ body {
 }
 
 /* ============================================
+   AGENT IMAGE THUMBNAILS
+   ============================================ */
+.agent-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.agent-thumb {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity var(--duration-fast), border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.agent-thumb:hover {
+    opacity: 1;
+    border-color: var(--color-warning);
+    box-shadow: 0 0 10px rgba(255, 107, 0, 0.35);
+}
+
+/* ============================================
+   LIGHTBOX OVERLAY
+   ============================================ */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--ease-smooth), visibility 0.3s;
+}
+
+.lightbox-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 12, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.lightbox-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    background: none;
+    border: 1px solid var(--color-gray);
+    color: var(--color-gray);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    transition: all var(--duration-fast);
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+    box-shadow: 0 0 12px rgba(255, 107, 0, 0.4);
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 4px;
+    border: 1px solid var(--color-border);
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-soft);
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+/* ============================================
    HEX GALLERY TIMELINE
    ============================================ */
 .gallery-section {

@@ -773,6 +773,16 @@ const AGENT_BLURBS = {
     agent_system_logger: 'Records every movement as unified waypoints. Powers the rewind system — trajectory reversal for safe error recovery.'
 };
 
+const AGENT_IMAGES = {
+    agent_server: [
+        { src: 'images/agent_server_dashboard.png', caption: 'Service dashboard — robot state, map position, trajectory, and lease queue' },
+        { src: 'images/agent_server_code_exec.png', caption: 'Code execution logs — sandboxed skill runs with live output' },
+    ],
+    // agent_system_logger: [
+    //     { src: 'images/logger_1.png', caption: 'System logger dashboard' },
+    // ],
+};
+
 function renderAgents(entries) {
     const grid = document.getElementById('agents-grid');
     if (!grid) return;
@@ -806,6 +816,7 @@ function renderAgents(entries) {
                 <h3 class="agent-blurb-title">${entry.title}</h3>
                 <p class="agent-blurb-text">${blurb}</p>
                 ${entry.html_url ? `<a href="${entry.html_url}" target="_blank" rel="noopener noreferrer" class="popup-repo-link">View Repo →</a>` : ''}
+                ${AGENT_IMAGES[entry.title] ? `<div class="agent-thumbs">${AGENT_IMAGES[entry.title].map(img => `<img class="agent-thumb" src="${img.src}" data-caption="${img.caption}" alt="${img.caption}">`).join('')}</div>` : ''}
             </div>
         </div>`;
     }).join('');
@@ -817,6 +828,42 @@ function renderAgents(entries) {
             const url = hex.dataset.url;
             if (url) window.open(url, '_blank');
         });
+    });
+}
+
+// ============================================
+// LIGHTBOX (for agent image gallery)
+// ============================================
+
+function openLightbox(src, caption) {
+    const overlay = document.getElementById('lightbox-overlay');
+    overlay.querySelector('.lightbox-img').src = src;
+    overlay.querySelector('.lightbox-caption').textContent = caption || '';
+    overlay.classList.add('open');
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox-overlay').classList.remove('open');
+}
+
+function initLightbox() {
+    const overlay = document.getElementById('lightbox-overlay');
+    if (!overlay) return;
+
+    overlay.querySelector('.lightbox-backdrop').addEventListener('click', closeLightbox);
+    overlay.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.classList.contains('open')) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        const thumb = e.target.closest('.agent-thumb');
+        if (thumb) {
+            openLightbox(thumb.src, thumb.dataset.caption);
+        }
     });
 }
 
@@ -856,6 +903,7 @@ function initGallery(name, entries) {
 document.addEventListener('DOMContentLoaded', async () => {
     initHoneycomb();
     initParallax();
+    initLightbox();
 
     const [skills, services] = await Promise.all([
         loadRepos('./logs/repos.json'),
@@ -884,7 +932,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 const TAGLINES = [
     'Moltbook for Tidybots',
-    'Revolutionize Robot Software Development',
     'Auto Experiment with Just a Wish',
     "It's Christmas for Tidybots Every Day",
     'Wish It. Build It. Share It.',
@@ -893,9 +940,8 @@ const TAGLINES = [
     'Every Robot Gets Better When One Does',
     'One Skill Away from a Smarter Robot',
     'Slurm Server for your Tidybot',
-    'Automate 90 % of your Experiments',
-    'Agent Centric Hardware Platform',
     'Bring the Lobster into the Physical World',
+    'DM Your Robot What You Need',
 ];
 
 function initTaglineRotator() {
