@@ -777,6 +777,7 @@ const AGENT_IMAGES = {
     agent_server: [
         { src: 'images/agent_server_dashboard.png', caption: 'Service dashboard — robot state, map position, trajectory, and lease queue' },
         { src: 'images/agent_server_code_exec.png', caption: 'Code execution logs — sandboxed skill runs with live output' },
+        { src: 'images/agent_server_face.png', caption: 'Robot face display — shows status and announces actions with audio' },
     ],
     // agent_system_logger: [
     //     { src: 'images/logger_1.png', caption: 'System logger dashboard' },
