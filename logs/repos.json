@@ -117,9 +117,9 @@
     "stars": 0,
     "is_private": false,
     "default_branch": "main",
-    "success_rate": 0,
-    "total_trials": 0,
-    "institutions_tested": 0,
+    "success_rate": 85,
+    "total_trials": 20,
+    "institutions_tested": 1,
     "trial_images": []
   }
 ]
