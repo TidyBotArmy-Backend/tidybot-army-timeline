@@ -769,8 +769,8 @@ function initParallax() {
 // ============================================
 
 const AGENT_BLURBS = {
-    agent_server: 'The unified API layer between skills and hardware. Provides safety envelope, rewind, lease system, and sandboxed code execution so agents can experiment freely.',
-    agent_system_logger: 'Records every movement as unified waypoints. Powers the rewind system — trajectory reversal for safe error recovery.'
+    agent_server: 'The central server between AI agents and the physical robot. Agents submit Python code that moves the arm, drives the base, and operates the gripper. Handles lease queueing, safety envelopes, trajectory recording, and a live dashboard with robot face display.',
+    agent_system_logger: 'State recording library used by the agent server. Polls all subsystems at configurable Hz, stores unified waypoints with threshold filtering, and orchestrates coordinated rewind across arm, base, and gripper.'
 };
 
 const AGENT_IMAGES = {
