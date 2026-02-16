@@ -1654,5 +1654,29 @@
     "sha": "95aa03e",
     "repo": "nav-mapping-service",
     "author": "qifei-c"
+  },
+  {
+    "timestamp": "2026-02-16 03:57",
+    "type": "feature",
+    "title": "feat: update grounded-sam2 to v0.2.0 — add /visualize endpoint",
+    "description": "Commit by Selina Wan in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "09f5afa",
+    "repo": "services_wishlist",
+    "author": "Selina Wan"
+  },
+  {
+    "timestamp": "2026-02-16 03:57",
+    "type": "feature",
+    "title": "feat: add /visualize endpoint with supervision bbox+mask+label overlay",
+    "description": "Commit by qifei-c in grounded-sam2-service",
+    "files": [
+      "grounded-sam2-service/"
+    ],
+    "sha": "bf60c0c",
+    "repo": "grounded-sam2-service",
+    "author": "qifei-c"
   }
 ]
