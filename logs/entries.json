@@ -1750,5 +1750,89 @@
     "sha": "1bf429b",
     "repo": "services_wishlist",
     "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-16 07:59",
+    "type": "feature",
+    "title": "Mark lightweight-grasp-net and local-obstacle-avoidance as building",
+    "description": "Commit by Selina Wan in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "faf091c",
+    "repo": "services_wishlist",
+    "author": "Selina Wan"
+  },
+  {
+    "timestamp": "2026-02-16 08:03",
+    "type": "feature",
+    "title": "Mark local-obstacle-avoidance as done",
+    "description": "Commit by Selina Wan in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "fad44cc",
+    "repo": "services_wishlist",
+    "author": "Selina Wan"
+  },
+  {
+    "timestamp": "2026-02-16 08:03",
+    "type": "feature",
+    "title": "Add local-obstacle-avoidance service",
+    "description": "Commit by Selina Wan in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "d2c9bd1",
+    "repo": "services_wishlist",
+    "author": "Selina Wan"
+  },
+  {
+    "timestamp": "2026-02-16 08:03",
+    "type": "setup",
+    "title": "Initial: local obstacle avoidance with DWA",
+    "description": "Commit by qifei-c in local-obstacle-avoidance-service",
+    "files": [
+      "local-obstacle-avoidance-service/"
+    ],
+    "sha": "ea0148a",
+    "repo": "local-obstacle-avoidance-service",
+    "author": "qifei-c"
+  },
+  {
+    "timestamp": "2026-02-16 08:03",
+    "type": "setup",
+    "title": "Initial: GR-ConvNet v2 grasp detection service with FastAPI",
+    "description": "Commit by qifei-c in lightweight-grasp-service",
+    "files": [
+      "lightweight-grasp-service/"
+    ],
+    "sha": "1270db8",
+    "repo": "lightweight-grasp-service",
+    "author": "qifei-c"
+  },
+  {
+    "timestamp": "2026-02-16 08:04",
+    "type": "feature",
+    "title": "Mark lightweight-grasp-net as done",
+    "description": "Commit by Selina Wan in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "0601b89",
+    "repo": "services_wishlist",
+    "author": "Selina Wan"
+  },
+  {
+    "timestamp": "2026-02-16 08:04",
+    "type": "feature",
+    "title": "Add lightweight-grasp-net service",
+    "description": "Commit by Selina Wan in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "e90bf85",
+    "repo": "services_wishlist",
+    "author": "Selina Wan"
   }
 ]
