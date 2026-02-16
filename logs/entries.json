@@ -1678,5 +1678,77 @@
     "sha": "bf60c0c",
     "repo": "grounded-sam2-service",
     "author": "qifei-c"
+  },
+  {
+    "timestamp": "2026-02-16 06:46",
+    "type": "feature",
+    "title": "Add RealSense SLAM (RTAB-Map) service request",
+    "description": "Commit by Yifei Simon Shao in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "9dee21a",
+    "repo": "services_wishlist",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-16 06:59",
+    "type": "feature",
+    "title": "Mark realsense-slam as building",
+    "description": "Commit by Selina Wan in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "c504cab",
+    "repo": "services_wishlist",
+    "author": "Selina Wan"
+  },
+  {
+    "timestamp": "2026-02-16 07:01",
+    "type": "feature",
+    "title": "Add .gitignore, remove pycache",
+    "description": "Commit by qifei-c in realsense-slam",
+    "files": [
+      "realsense-slam/"
+    ],
+    "sha": "6324437",
+    "repo": "realsense-slam",
+    "author": "qifei-c"
+  },
+  {
+    "timestamp": "2026-02-16 07:01",
+    "type": "setup",
+    "title": "Initial: RealSense SLAM service with Open3D ICP + OpenCV",
+    "description": "Commit by qifei-c in realsense-slam",
+    "files": [
+      "realsense-slam/"
+    ],
+    "sha": "39bee03",
+    "repo": "realsense-slam",
+    "author": "qifei-c"
+  },
+  {
+    "timestamp": "2026-02-16 07:02",
+    "type": "feature",
+    "title": "Add realsense-slam service (done)",
+    "description": "Commit by qifei-c in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "5a9ceb5",
+    "repo": "services_wishlist",
+    "author": "qifei-c"
+  },
+  {
+    "timestamp": "2026-02-16 07:15",
+    "type": "feature",
+    "title": "Add lightweight RGB-D grasp detection service request",
+    "description": "Commit by Yifei Simon Shao in services_wishlist",
+    "files": [
+      "services_wishlist/"
+    ],
+    "sha": "1bf429b",
+    "repo": "services_wishlist",
+    "author": "Yifei Simon Shao"
   }
 ]
