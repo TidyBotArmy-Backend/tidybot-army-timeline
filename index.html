@@ -138,7 +138,7 @@
                     <a href="https://github.com/TidyBot-Services/services_wishlist" class="gallery-wishlist" target="_blank" rel="noopener">Wishlist</a>
                     <span class="gallery-count"></span>
                 </div>
-                <p class="gallery-blurb">How the robot does it. Hardware drivers, perception pipelines, and software infrastructure that expose a uniform API regardless of what&rsquo;s underneath. Services are noun-shaped: an arm, a gripper, a camera&mdash;skills call into them without caring which specific hardware is running, so proven configurations benefit every robot in the ecosystem.</p>
+                <p class="gallery-blurb">How the robot does it. Each service wraps a single capability&mdash;a hardware driver, a perception model, a grasp planner&mdash;behind a uniform API. Skills call into them without caring what&rsquo;s underneath: swap a Franka arm for another arm, swap one grasp model for a better one, the skill code never changes. Services are noun-shaped resources, whether physical or computational, that any agent can rely on.</p>
                 <div class="gallery-viewport">
                     <div class="gallery-track"></div>
                 </div>
