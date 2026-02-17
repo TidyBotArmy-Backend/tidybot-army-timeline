@@ -676,6 +676,18 @@ body {
     margin-left: auto;
 }
 
+.gallery-blurb {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-soft);
+    letter-spacing: 0.03em;
+    line-height: 1.7;
+    margin-top: -0.75rem;
+    margin-bottom: 1.5rem;
+    max-width: 640px;
+    opacity: 0.85;
+}
+
 /* ============================================
    GALLERY VIEWPORT & TRACK
    ============================================ */
