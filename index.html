@@ -100,7 +100,7 @@
                 <div class="gallery-header">
                     <span class="gallery-label">Skills</span>
                     <a href="https://github.com/tidybot-skills" class="gallery-repo" target="_blank" rel="noopener">GitHub Org</a>
-                    <a href="https://github.com/tidybot-skills/wishlist" class="gallery-wishlist" target="_blank" rel="noopener">Wishlist</a>
+                    <button class="gallery-wishlist" id="skills-wishlist-btn">Wishlist</button>
                     <span class="gallery-count"></span>
                 </div>
                 <div class="gallery-viewport">
@@ -113,6 +113,27 @@
                     <span class="gallery-hint">
                         <span class="hint-icon">◈</span> scroll or drag to explore
                     </span>
+                </div>
+
+                <!-- Inline Wishlist Subsection -->
+                <div class="wishlist-section" id="wishlist-section">
+                    <div class="wishlist-sub-header">
+                        <span class="wishlist-sub-title">Skill Wishlist</span>
+                        <div class="wishlist-sort-buttons">
+                            <button class="wishlist-sort-btn active" data-sort="votes">Top Voted</button>
+                            <button class="wishlist-sort-btn" data-sort="newest">Newest</button>
+                        </div>
+                        <div class="wishlist-auth" id="wishlist-auth">
+                            <button class="wishlist-signin-btn" id="wishlist-signin">Sign In to Submit Wishlist</button>
+                        </div>
+                        <button class="wishlist-suggest-btn" id="wishlist-suggest-btn" disabled>+ Suggest a Skill</button>
+                    </div>
+                    <div class="wishlist-items" id="wishlist-items">
+                        <div class="wishlist-loading" id="wishlist-loading">
+                            <span class="wishlist-spinner"></span>
+                            <span>LOADING WISHLIST DATA...</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -184,6 +205,33 @@
         </div>
     </div>
 
+    <!-- ==============================
+         WISHLIST OVERLAY
+         ============================== -->
+    <div class="wishlist-overlay" id="wishlist-overlay">
+        <div class="wishlist-backdrop" id="wishlist-backdrop"></div>
+        <div class="wishlist-form-card">
+            <button class="wishlist-form-close" id="wishlist-form-close">&#x2715;</button>
+            <h3 class="wishlist-form-title">Suggest a Skill</h3>
+            <form class="wishlist-form" id="wishlist-form">
+                <input class="wishlist-input" type="text" name="title" placeholder="Skill name (e.g. Open doors)" maxlength="100" required>
+                <textarea class="wishlist-textarea" name="description" placeholder="Describe what the robot should do..." maxlength="500" required></textarea>
+                <select class="wishlist-select" name="category" required>
+                    <option value="" disabled selected>Category...</option>
+                    <option value="manipulation">Manipulation</option>
+                    <option value="navigation">Navigation</option>
+                    <option value="perception">Perception</option>
+                    <option value="social">Social</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="wishlist-form-actions">
+                    <button type="submit" class="wishlist-submit-btn">Submit</button>
+                    <button type="button" class="wishlist-cancel-btn" id="wishlist-cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Rounded hex clip-path (objectBoundingBox so it scales to any size) -->
     <svg width="0" height="0" style="position:absolute;">
         <defs>
@@ -207,6 +255,8 @@
         </defs>
     </svg>
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="wishlist.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

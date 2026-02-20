@@ -925,6 +925,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupGlobalEvents();
     tick();
     initTaglineRotator();
+    if (typeof initWishlist === 'function') initWishlist();
 });
 
 // ============================================
