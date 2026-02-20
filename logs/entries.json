@@ -2050,5 +2050,29 @@
     "sha": "53ee62b",
     "repo": "agent_system_logger",
     "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-20 04:12",
+    "type": "feature",
+    "title": "Workspace boundary hull, mocap-only safety monitor, fast reset-to-home",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "b8e89df",
+    "repo": "agent_server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-20 04:12",
+    "type": "feature",
+    "title": "Add bounds property, skip arm rewind when disconnected",
+    "description": "Commit by Tidybot in agent_system_logger",
+    "files": [
+      "agent_system_logger/"
+    ],
+    "sha": "3c231b6",
+    "repo": "agent_system_logger",
+    "author": "Tidybot"
   }
 ]
