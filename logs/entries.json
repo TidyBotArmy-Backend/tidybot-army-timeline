@@ -2074,5 +2074,53 @@
     "sha": "3c231b6",
     "repo": "agent_system_logger",
     "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-20 22:05",
+    "type": "feature",
+    "title": "Add base collision detection, safety-stops code execution, mocap velocity fix",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "746ddab",
+    "repo": "agent_server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-20 22:05",
+    "type": "feature",
+    "title": "Add shared command state tracking for cross-process collision detection",
+    "description": "Commit by Tidybot in base_tidybot_service",
+    "files": [
+      "base_tidybot_service/"
+    ],
+    "sha": "49c6126",
+    "repo": "base_tidybot_service",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-20 22:05",
+    "type": "feature",
+    "title": "Dual-threshold collision detection and rewind cancellation support",
+    "description": "Commit by Tidybot in agent_system_logger",
+    "files": [
+      "agent_system_logger/"
+    ],
+    "sha": "c1387a4",
+    "repo": "agent_system_logger",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-20 22:08",
+    "type": "feature",
+    "title": "Record state data at 10 Hz during code execution, enable auto-rewind on startup",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "ffef5c7",
+    "repo": "agent_server",
+    "author": "Tidybot"
   }
 ]
