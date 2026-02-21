@@ -93,7 +93,10 @@
     "total_trials": 2,
     "institutions_tested": 1,
     "trial_images": [],
-    "dependencies": ["center-object", "pick-up-object"]
+    "dependencies": [
+      "center-object",
+      "pick-up-object"
+    ]
   },
   {
     "id": "006",
@@ -127,7 +130,10 @@
     "total_trials": 20,
     "institutions_tested": 1,
     "trial_images": [],
-    "dependencies": ["pick-up-object", "place-object"]
+    "dependencies": [
+      "pick-up-object",
+      "place-object"
+    ]
   },
   {
     "id": "008",
