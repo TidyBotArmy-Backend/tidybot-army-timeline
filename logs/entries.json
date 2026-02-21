@@ -2134,5 +2134,17 @@
     "sha": "a81ea4f",
     "repo": "services_wishlist",
     "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-21 22:44",
+    "type": "feature",
+    "title": "Add context-injection skills and slim down ROBOT.md/MISSION.md",
+    "description": "Commit by Yifei Simon Shao in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "f37532c",
+    "repo": "Tidybot-Universe",
+    "author": "Yifei Simon Shao"
   }
 ]
