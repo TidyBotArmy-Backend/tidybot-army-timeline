@@ -75,6 +75,32 @@ jobs:
               }
             }
 
+            // Fetch services.txt from a skill repo (external service dependencies)
+            async function getServiceDeps(org, repoName, branch) {
+              try {
+                const { data } = await github.rest.repos.getContent({
+                  owner: org, repo: repoName, path: 'services.txt', ref: branch
+                });
+                return Buffer.from(data.content, 'base64').toString('utf8')
+                  .trim().split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+              } catch (e) {
+                return [];
+              }
+            }
+
+            // Fetch sdk.txt from a skill repo (robot_sdk function usage)
+            async function getSdkFunctions(org, repoName, branch) {
+              try {
+                const { data } = await github.rest.repos.getContent({
+                  owner: org, repo: repoName, path: 'sdk.txt', ref: branch
+                });
+                return Buffer.from(data.content, 'base64').toString('utf8')
+                  .trim().split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+              } catch (e) {
+                return [];
+              }
+            }
+
             // Discover trial images from each repo's trials/ directory
             async function getTrialImages(org, repoName, branch) {
               try {
@@ -105,11 +131,19 @@ jobs:
               const meta = catalog[repo.name] || {};
               const trial_images = await getTrialImages(org, repo.name, repo.default_branch);
               const dependencies = await getDependencies(org, repo.name, repo.default_branch);
+              const service_dependencies = await getServiceDeps(org, repo.name, repo.default_branch);
+              const sdk_functions = await getSdkFunctions(org, repo.name, repo.default_branch);
               if (trial_images.length > 0) {
                 console.log(`  ${repo.name}: found ${trial_images.length} trial images`);
               }
               if (dependencies.length > 0) {
                 console.log(`  ${repo.name}: deps = [${dependencies.join(', ')}]`);
+              }
+              if (service_dependencies.length > 0) {
+                console.log(`  ${repo.name}: services = [${service_dependencies.join(', ')}]`);
+              }
+              if (sdk_functions.length > 0) {
+                console.log(`  ${repo.name}: sdk = [${sdk_functions.join(', ')}]`);
               }
               entries.push({
                 id: String(index + 1).padStart(3, '0'),
@@ -126,7 +160,9 @@ jobs:
                 total_trials: meta.total_trials ?? 0,
                 institutions_tested: meta.institutions_tested ?? 0,
                 trial_images: trial_images,
-                dependencies: dependencies
+                dependencies: dependencies,
+                service_dependencies: service_dependencies,
+                sdk_functions: sdk_functions
               });
             }
 

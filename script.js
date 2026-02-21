@@ -83,6 +83,8 @@ async function loadRepos(file) {
             institutions_tested: repo.institutions_tested ?? null,
             trial_images: repo.trial_images || [],
             dependencies: repo.dependencies || [],
+            service_dependencies: repo.service_dependencies || [],
+            sdk_functions: repo.sdk_functions || [],
             _isRepo: true
         }));
     } catch (e) {
@@ -428,6 +430,26 @@ function openPopup(galleryName, index) {
         </div>`;
     }
 
+    let servicesHTML = '';
+    if (entry.service_dependencies && entry.service_dependencies.length > 0) {
+        servicesHTML = `<div class="popup-files">
+            <span class="popup-files-label">Services</span>
+            <div class="popup-files-list">
+                ${entry.service_dependencies.map(s => `<code class="popup-file">${s}</code>`).join('')}
+            </div>
+        </div>`;
+    }
+
+    let sdkHTML = '';
+    if (entry.sdk_functions && entry.sdk_functions.length > 0) {
+        sdkHTML = `<div class="popup-files">
+            <span class="popup-files-label">SDK</span>
+            <div class="popup-files-list">
+                ${entry.sdk_functions.map(f => `<code class="popup-file">${f}</code>`).join('')}
+            </div>
+        </div>`;
+    }
+
     let repoMeta = '';
     if (entry._isRepo) {
         repoMeta = `<div class="popup-files">
@@ -504,6 +526,8 @@ function openPopup(galleryName, index) {
         <p class="popup-desc">${entry.description}</p>
         ${filesHTML}
         ${depsHTML}
+        ${servicesHTML}
+        ${sdkHTML}
         ${repoMeta}
         ${repoLink}
     `;
@@ -1025,6 +1049,17 @@ function renderSkillTree(entries) {
         nodesHTML += `<div class="tree-layer-label" style="top:${y}px;">${label}</div>`;
     });
 
+    // SDK module badge config
+    const sdkBadgeConfig = {
+        arm:     { letter: 'A', cls: 'sdk-hw' },
+        base:    { letter: 'B', cls: 'sdk-hw' },
+        gripper: { letter: 'G', cls: 'sdk-hw' },
+        sensors: { letter: 'S', cls: 'sdk-hw' },
+        yolo:    { letter: 'Y', cls: 'sdk-sw' },
+        display: { letter: 'D', cls: 'sdk-infra' },
+        rewind:  { letter: 'R', cls: 'sdk-infra' }
+    };
+
     // Render hex cards
     layout.nodes.forEach((node, i) => {
         const entry = node.entry;
@@ -1035,6 +1070,22 @@ function renderSkillTree(entries) {
         const title = entry.title || 'Untitled';
         const floatDelay = ((i * 0.7) % 5).toFixed(1);
         const patternIdx = i % 4;
+
+        // Derive SDK modules from sdk_functions
+        let sdkBadgesHTML = '';
+        if (entry.sdk_functions && entry.sdk_functions.length > 0) {
+            const modules = [...new Set(entry.sdk_functions.map(f => f.split('.')[0]))];
+            const badges = modules
+                .filter(m => sdkBadgeConfig[m])
+                .map(m => {
+                    const cfg = sdkBadgeConfig[m];
+                    return `<span class="sdk-badge ${cfg.cls}" title="${m}">${cfg.letter}</span>`;
+                })
+                .join('');
+            if (badges) {
+                sdkBadgesHTML = `<div class="hex-sdk-badges">${badges}</div>`;
+            }
+        }
 
         nodesHTML += `<div class="tree-hex-card hex-lg" data-title="${entry.title}" data-entry-index="${i}"
             style="left:${hexLeft}px;top:${hexTop}px;width:${node.w}px;height:${node.h}px;
@@ -1047,6 +1098,7 @@ function renderSkillTree(entries) {
                         <span class="hex-type" style="color:${typeColor};">${typeLabel}</span>
                         <h3 class="hex-title">${title}</h3>
                         ${entry.success_rate != null ? `<span class="hex-rate"><span class="hex-rate-label">Success </span>${entry.success_rate}%</span>` : ''}
+                        ${sdkBadgesHTML}
                     </div>
                 </div>
             </div>

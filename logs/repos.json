@@ -14,7 +14,9 @@
     "total_trials": 0,
     "institutions_tested": 0,
     "trial_images": [],
-    "dependencies": []
+    "dependencies": [],
+    "service_dependencies": [],
+    "sdk_functions": ["sensors.get_depth_image", "base.rotate"]
   },
   {
     "id": "002",
@@ -31,7 +33,9 @@
     "total_trials": 1,
     "institutions_tested": 1,
     "trial_images": [],
-    "dependencies": []
+    "dependencies": [],
+    "service_dependencies": [],
+    "sdk_functions": ["yolo.segment_camera"]
   },
   {
     "id": "003",
@@ -59,7 +63,9 @@
       "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/09_base.jpg",
       "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/10_base.jpg"
     ],
-    "dependencies": []
+    "dependencies": [],
+    "service_dependencies": [],
+    "sdk_functions": ["yolo.segment_camera", "arm.move_delta", "arm.move_to", "gripper.close", "sensors.get_depth_image", "display.show_status"]
   },
   {
     "id": "004",
@@ -76,7 +82,9 @@
     "total_trials": 2,
     "institutions_tested": 1,
     "trial_images": [],
-    "dependencies": []
+    "dependencies": [],
+    "service_dependencies": [],
+    "sdk_functions": ["yolo.segment_camera", "base.move_delta"]
   },
   {
     "id": "005",
@@ -96,7 +104,9 @@
     "dependencies": [
       "center-object",
       "pick-up-object"
-    ]
+    ],
+    "service_dependencies": [],
+    "sdk_functions": ["display.show_status"]
   },
   {
     "id": "006",
@@ -113,7 +123,9 @@
     "total_trials": 0,
     "institutions_tested": 0,
     "trial_images": [],
-    "dependencies": []
+    "dependencies": [],
+    "service_dependencies": [],
+    "sdk_functions": ["yolo.segment_camera", "arm.move_delta", "arm.move_to", "gripper.open", "sensors.get_depth_image", "display.show_status"]
   },
   {
     "id": "007",
@@ -133,12 +145,14 @@
     "dependencies": [
       "pick-up-object",
       "place-object"
-    ]
+    ],
+    "service_dependencies": [],
+    "sdk_functions": ["display.show_status"]
   },
   {
     "id": "008",
     "name": "visuomotor-keypoint-joint-policy",
-    "description": "Learned diffusion policy: semantic keypoint tracking (CleanDIFT + CoTracker) → joint angle commands for Franka Panda",
+    "description": "Learned diffusion policy: semantic keypoint tracking (CleanDIFT + CoTracker) \u2192 joint angle commands for Franka Panda",
     "created_at": "2026-02-18T01:08:57Z",
     "updated_at": "2026-02-18T01:09:10Z",
     "html_url": "https://github.com/Tidybot-Skills/visuomotor-keypoint-joint-policy",
@@ -150,6 +164,8 @@
     "total_trials": 0,
     "institutions_tested": 0,
     "trial_images": [],
-    "dependencies": []
+    "dependencies": [],
+    "service_dependencies": [],
+    "sdk_functions": ["arm.move_to", "arm.get_joint_positions"]
   }
 ]
