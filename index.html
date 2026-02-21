@@ -124,19 +124,28 @@
                     <span class="gallery-label">Skills</span>
                     <a href="https://github.com/tidybot-skills" class="gallery-repo" target="_blank" rel="noopener">GitHub Org</a>
                     <button class="gallery-wishlist" id="skills-wishlist-btn">Wishlist</button>
+                    <div class="gallery-view-toggle" id="skills-view-toggle">
+                        <button class="view-toggle-btn" data-view="timeline">Timeline</button>
+                        <button class="view-toggle-btn active" data-view="tree">Dep Tree</button>
+                    </div>
                     <span class="gallery-count"></span>
                 </div>
                 <p class="gallery-blurb">What the robot does. Verb-shaped behaviors that run on the robot&mdash;pick, place, scan, navigate&mdash;tested with real trials and composed into dependency trees of increasingly complex tasks.</p>
-                <div class="gallery-viewport">
+                <div class="gallery-viewport" style="display:none;">
                     <div class="gallery-track"></div>
                 </div>
-                <div class="gallery-nav">
+                <div class="gallery-nav" style="display:none;">
                     <div class="gallery-progress">
                         <div class="gallery-progress-fill"></div>
                     </div>
                     <span class="gallery-hint">
                         <span class="hint-icon">◈</span> scroll or drag to explore
                     </span>
+                </div>
+
+                <div class="tree-viewport" id="skills-tree">
+                    <svg class="tree-edges" id="tree-edges"></svg>
+                    <div class="tree-nodes" id="tree-nodes"></div>
                 </div>
 
                 <!-- Inline Wishlist Subsection -->

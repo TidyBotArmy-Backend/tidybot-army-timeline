@@ -13,7 +13,8 @@
     "success_rate": 0,
     "total_trials": 0,
     "institutions_tested": 0,
-    "trial_images": []
+    "trial_images": [],
+    "dependencies": []
   },
   {
     "id": "002",
@@ -29,7 +30,8 @@
     "success_rate": 100,
     "total_trials": 1,
     "institutions_tested": 1,
-    "trial_images": []
+    "trial_images": [],
+    "dependencies": []
   },
   {
     "id": "003",
@@ -56,7 +58,8 @@
       "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/08_base.jpg",
       "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/09_base.jpg",
       "https://raw.githubusercontent.com/Tidybot-Skills/pick-up-object/main/trials/10_base.jpg"
-    ]
+    ],
+    "dependencies": []
   },
   {
     "id": "004",
@@ -72,7 +75,8 @@
     "success_rate": 100,
     "total_trials": 2,
     "institutions_tested": 1,
-    "trial_images": []
+    "trial_images": [],
+    "dependencies": []
   },
   {
     "id": "005",
@@ -88,7 +92,8 @@
     "success_rate": 100,
     "total_trials": 2,
     "institutions_tested": 1,
-    "trial_images": []
+    "trial_images": [],
+    "dependencies": ["center-object", "pick-up-object"]
   },
   {
     "id": "006",
@@ -104,7 +109,8 @@
     "success_rate": 0,
     "total_trials": 0,
     "institutions_tested": 0,
-    "trial_images": []
+    "trial_images": [],
+    "dependencies": []
   },
   {
     "id": "007",
@@ -120,7 +126,8 @@
     "success_rate": 85,
     "total_trials": 20,
     "institutions_tested": 1,
-    "trial_images": []
+    "trial_images": [],
+    "dependencies": ["pick-up-object", "place-object"]
   },
   {
     "id": "008",
@@ -136,6 +143,7 @@
     "success_rate": 0,
     "total_trials": 0,
     "institutions_tested": 0,
-    "trial_images": []
+    "trial_images": [],
+    "dependencies": []
   }
 ]

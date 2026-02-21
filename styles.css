@@ -1697,6 +1697,165 @@ button.gallery-wishlist {
 }
 
 /* ============================================
+   VIEW TOGGLE BUTTONS
+   ============================================ */
+.gallery-view-toggle {
+    display: flex;
+    gap: 0;
+}
+
+.view-toggle-btn {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gray);
+    background: none;
+    border: 1px solid var(--color-border);
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    transition: all var(--duration-fast);
+}
+
+.view-toggle-btn:first-child {
+    clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+    padding-right: 0.8rem;
+}
+
+.view-toggle-btn:last-child {
+    clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%);
+    padding-left: 0.8rem;
+    margin-left: -1px;
+}
+
+.view-toggle-btn:hover {
+    color: var(--color-text-soft);
+    border-color: var(--color-gray);
+}
+
+.view-toggle-btn.active {
+    color: var(--color-warning);
+    border-color: var(--color-warning-dim);
+    background: rgba(255, 107, 0, 0.08);
+}
+
+/* ============================================
+   DEPENDENCY TREE VIEW
+   ============================================ */
+.tree-viewport {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 2rem 0 3rem;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.tree-viewport:active {
+    cursor: grabbing;
+}
+
+.tree-nodes {
+    position: relative;
+}
+
+.tree-edges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tree-edge-path {
+    fill: none;
+    stroke: var(--color-purple-dim);
+    stroke-width: 2;
+    opacity: 0.5;
+    transition: stroke var(--duration-fast), opacity var(--duration-fast), filter var(--duration-fast);
+}
+
+.tree-edge-path:hover {
+    stroke: var(--color-warning);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px var(--color-warning));
+}
+
+.tree-layer-label {
+    position: absolute;
+    left: 0;
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-gray);
+    opacity: 0.6;
+    transform: translateY(-50%);
+}
+
+.tree-hex-card {
+    position: absolute;
+    cursor: pointer;
+    z-index: 6;
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+    transition: opacity 0.5s var(--ease-smooth),
+                transform 0.5s var(--ease-smooth),
+                filter var(--duration-fast) var(--ease-smooth);
+}
+
+.tree-hex-card.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.tree-hex-card.visible:hover {
+    transform: scale(1.1) translateY(-4px);
+    filter: drop-shadow(0 0 20px rgba(255, 107, 0, 0.4));
+    z-index: 20;
+}
+
+/* Child dependency highlight (green) */
+.tree-hex-card.highlight-child .hex-border {
+    background: var(--color-green);
+}
+
+.tree-hex-card.highlight-child {
+    filter: drop-shadow(0 0 15px rgba(57, 255, 20, 0.4));
+}
+
+/* Parent (depended-on-by) highlight (cyan) */
+.tree-hex-card.highlight-parent .hex-border {
+    background: #00d4ff;
+}
+
+.tree-hex-card.highlight-parent {
+    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.4));
+}
+
+/* Edge highlights */
+.tree-edge-path.highlight-child {
+    stroke: var(--color-green);
+    opacity: 1;
+    filter: drop-shadow(0 0 4px var(--color-green));
+}
+
+.tree-edge-path.highlight-parent {
+    stroke: #00d4ff;
+    opacity: 1;
+    filter: drop-shadow(0 0 4px #00d4ff);
+}
+
+/* Dim non-highlighted nodes when something is hovered */
+.tree-nodes.has-highlight .tree-hex-card:not(.highlight-child):not(.highlight-parent):not(:hover) {
+    opacity: 0.4;
+}
+
+/* ============================================
    GALLERY NAVIGATION / PROGRESS
    ============================================ */
 .gallery-nav {

@@ -82,6 +82,7 @@ async function loadRepos(file) {
             total_trials: repo.total_trials ?? null,
             institutions_tested: repo.institutions_tested ?? null,
             trial_images: repo.trial_images || [],
+            dependencies: repo.dependencies || [],
             _isRepo: true
         }));
     } catch (e) {
@@ -417,6 +418,16 @@ function openPopup(galleryName, index) {
         </div>`;
     }
 
+    let depsHTML = '';
+    if (entry.dependencies && entry.dependencies.length > 0) {
+        depsHTML = `<div class="popup-files">
+            <span class="popup-files-label">Dependencies</span>
+            <div class="popup-files-list">
+                ${entry.dependencies.map(d => `<code class="popup-file">${d}</code>`).join('')}
+            </div>
+        </div>`;
+    }
+
     let repoMeta = '';
     if (entry._isRepo) {
         repoMeta = `<div class="popup-files">
@@ -492,6 +503,7 @@ function openPopup(galleryName, index) {
         <h2 class="popup-title">${entry.title}</h2>
         <p class="popup-desc">${entry.description}</p>
         ${filesHTML}
+        ${depsHTML}
         ${repoMeta}
         ${repoLink}
     `;
@@ -869,6 +881,245 @@ function initLightbox() {
 }
 
 // ============================================
+// DEPENDENCY TREE VIEW
+// ============================================
+
+function computeTreeLayout(entries) {
+    // Build name→entry map
+    const byName = {};
+    entries.forEach(e => { byName[e.title] = e; });
+
+    // Build adjacency: who depends on whom, and who is depended on
+    const depsOf = {};   // name → [dep names]
+    const usedBy = {};   // name → [parent names]
+    entries.forEach(e => {
+        const deps = (e.dependencies || []).filter(d => byName[d]);
+        depsOf[e.title] = deps;
+        deps.forEach(d => {
+            if (!usedBy[d]) usedBy[d] = [];
+            usedBy[d].push(e.title);
+        });
+    });
+
+    // Assign layers: leaf (no deps) = 0, composite = max(dep layers) + 1
+    const layerOf = {};
+    function getLayer(name) {
+        if (layerOf[name] !== undefined) return layerOf[name];
+        const deps = depsOf[name] || [];
+        if (deps.length === 0) {
+            layerOf[name] = 0;
+        } else {
+            layerOf[name] = Math.max(...deps.map(getLayer)) + 1;
+        }
+        return layerOf[name];
+    }
+    entries.forEach(e => getLayer(e.title));
+
+    // Group by layer
+    const layers = {};
+    let maxLayer = 0;
+    entries.forEach(e => {
+        const l = layerOf[e.title];
+        if (!layers[l]) layers[l] = [];
+        layers[l].push(e);
+        if (l > maxLayer) maxLayer = l;
+    });
+
+    // Layout parameters
+    const hexSize = HEX_SIZES.lg;
+    const cfg = layoutConfig;
+    const hw = Math.round(hexSize.w * cfg.sizeScale);
+    const hh = Math.round(hexSize.h * cfg.sizeScale);
+    const hGap = Math.round(40 * cfg.sizeScale);
+    const vGap = Math.round(80 * cfg.sizeScale);
+
+    // Position nodes: top layer (highest) at top, layer 0 at bottom
+    // Center each row horizontally relative to the widest row
+    const nodes = [];
+    const nodeByName = {};
+    const labelPadLeft = 90;
+
+    // Find the widest row to determine total width
+    let maxRowW = 0;
+    for (let l = maxLayer; l >= 0; l--) {
+        const row = layers[l] || [];
+        const rowW = row.length * hw + (row.length - 1) * hGap;
+        if (rowW > maxRowW) maxRowW = rowW;
+    }
+
+    for (let l = maxLayer; l >= 0; l--) {
+        const row = layers[l] || [];
+        const rowY = (maxLayer - l) * (hh + vGap);
+        const rowW = row.length * hw + (row.length - 1) * hGap;
+        const offsetX = labelPadLeft + (maxRowW - rowW) / 2;
+
+        row.forEach((entry, i) => {
+            const x = offsetX + i * (hw + hGap) + hw / 2;
+            const y = rowY + hh / 2;
+            const node = { entry, x, y, w: hw, h: hh, layer: l };
+            nodes.push(node);
+            nodeByName[entry.title] = node;
+        });
+    }
+
+    // Compute edges
+    const edges = [];
+    entries.forEach(e => {
+        const deps = depsOf[e.title] || [];
+        deps.forEach(depName => {
+            if (nodeByName[e.title] && nodeByName[depName]) {
+                edges.push({ from: nodeByName[e.title], to: nodeByName[depName] });
+            }
+        });
+    });
+
+    // Compute total dimensions
+    let maxX = 0, maxY = 0;
+    nodes.forEach(n => {
+        const r = n.x + n.w / 2;
+        const b = n.y + n.h / 2;
+        if (r > maxX) maxX = r;
+        if (b > maxY) maxY = b;
+    });
+
+    return { nodes, edges, totalW: maxX + 40, totalH: maxY + 40, maxLayer, hexW: hw, hexH: hh, vGap, labelPadLeft };
+}
+
+function renderSkillTree(entries) {
+    const treeContainer = document.getElementById('skills-tree');
+    const nodesContainer = document.getElementById('tree-nodes');
+    const edgesSvg = document.getElementById('tree-edges');
+    if (!treeContainer || !nodesContainer || !edgesSvg) return;
+
+    const layout = computeTreeLayout(entries);
+    const cfg = layoutConfig;
+
+    // Set container size
+    nodesContainer.style.width = layout.totalW + 'px';
+    nodesContainer.style.height = layout.totalH + 'px';
+    edgesSvg.setAttribute('width', layout.totalW);
+    edgesSvg.setAttribute('height', layout.totalH);
+    edgesSvg.style.width = layout.totalW + 'px';
+    edgesSvg.style.height = layout.totalH + 'px';
+
+    // Render layer labels
+    let nodesHTML = '';
+    const layerLabels = {};
+    layout.nodes.forEach(n => {
+        if (layerLabels[n.layer] === undefined) {
+            layerLabels[n.layer] = n.y;
+        }
+    });
+    Object.entries(layerLabels).forEach(([layer, y]) => {
+        const label = parseInt(layer) === 0 ? 'Primitives' : `Composed L${layer}`;
+        nodesHTML += `<div class="tree-layer-label" style="top:${y}px;">${label}</div>`;
+    });
+
+    // Render hex cards
+    layout.nodes.forEach((node, i) => {
+        const entry = node.entry;
+        const hexLeft = node.x - node.w / 2;
+        const hexTop = node.y - node.h / 2;
+        const typeColor = typeConfig[entry.type]?.color || '#ff6b00';
+        const typeLabel = typeConfig[entry.type]?.label || entry.type;
+        const title = entry.title || 'Untitled';
+        const floatDelay = ((i * 0.7) % 5).toFixed(1);
+        const patternIdx = i % 4;
+
+        nodesHTML += `<div class="tree-hex-card hex-lg" data-title="${entry.title}" data-entry-index="${i}"
+            style="left:${hexLeft}px;top:${hexTop}px;width:${node.w}px;height:${node.h}px;
+                   --float-delay:${floatDelay}s;">
+            <div class="hex-border">
+                <div class="hex-inner">
+                    <div class="hex-bg pattern-${patternIdx}"
+                         style="--type-color:${typeColor};"></div>
+                    <div class="hex-content">
+                        <span class="hex-type" style="color:${typeColor};">${typeLabel}</span>
+                        <h3 class="hex-title">${title}</h3>
+                        ${entry.success_rate != null ? `<span class="hex-rate"><span class="hex-rate-label">Success </span>${entry.success_rate}%</span>` : ''}
+                    </div>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    nodesContainer.innerHTML = nodesHTML;
+
+    // Render SVG edges
+    let edgePaths = '';
+    layout.edges.forEach(edge => {
+        const fromX = edge.from.x;
+        const fromY = edge.from.y + edge.from.h / 2; // bottom center of parent
+        const toX = edge.to.x;
+        const toY = edge.to.y - edge.to.h / 2; // top center of child
+        const midY = (fromY + toY) / 2;
+
+        edgePaths += `<path class="tree-edge-path" data-from="${edge.from.entry.title}" data-to="${edge.to.entry.title}"
+            d="M${fromX},${fromY} C${fromX},${midY} ${toX},${midY} ${toX},${toY}" />`;
+    });
+    edgesSvg.innerHTML = edgePaths;
+
+    // Build adjacency lookup for hover highlighting
+    const byName = {};
+    entries.forEach(e => { byName[e.title] = e; });
+    const childrenOf = {};  // name → [child names] (direct dependencies)
+    const parentsOf = {};   // name → [parent names] (who depends on this)
+    entries.forEach(e => {
+        const deps = (e.dependencies || []).filter(d => byName[d]);
+        childrenOf[e.title] = deps;
+        deps.forEach(d => {
+            if (!parentsOf[d]) parentsOf[d] = [];
+            parentsOf[d].push(e.title);
+        });
+    });
+
+    // Staggered entrance
+    nodesContainer.querySelectorAll('.tree-hex-card').forEach((card, i) => {
+        setTimeout(() => card.classList.add('visible'), i * 60);
+    });
+
+    // Hover highlighting + click handler
+    nodesContainer.querySelectorAll('.tree-hex-card').forEach(card => {
+        const title = card.dataset.title;
+
+        card.addEventListener('mouseenter', () => {
+            nodesContainer.classList.add('has-highlight');
+
+            // Highlight children (dependencies)
+            (childrenOf[title] || []).forEach(child => {
+                const el = nodesContainer.querySelector(`[data-title="${child}"]`);
+                if (el) el.classList.add('highlight-child');
+                edgesSvg.querySelectorAll(`[data-from="${title}"][data-to="${child}"]`)
+                    .forEach(p => p.classList.add('highlight-child'));
+            });
+
+            // Highlight parents (who depends on this)
+            (parentsOf[title] || []).forEach(parent => {
+                const el = nodesContainer.querySelector(`[data-title="${parent}"]`);
+                if (el) el.classList.add('highlight-parent');
+                edgesSvg.querySelectorAll(`[data-from="${parent}"][data-to="${title}"]`)
+                    .forEach(p => p.classList.add('highlight-parent'));
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            nodesContainer.classList.remove('has-highlight');
+            nodesContainer.querySelectorAll('.highlight-child, .highlight-parent')
+                .forEach(el => el.classList.remove('highlight-child', 'highlight-parent'));
+            edgesSvg.querySelectorAll('.highlight-child, .highlight-parent')
+                .forEach(el => el.classList.remove('highlight-child', 'highlight-parent'));
+        });
+
+        card.addEventListener('click', () => {
+            const g = galleries.skills;
+            if (!g) return;
+            const idx = g.entries.findIndex(e => e.title === title);
+            if (idx >= 0) openPopup('skills', idx);
+        });
+    });
+}
+
+// ============================================
 // INIT
 // ============================================
 
@@ -914,7 +1165,86 @@ document.addEventListener('DOMContentLoaded', async () => {
     const { agents, nonAgents } = splitAgentServices(services);
 
     // Skills: repos from tidybot-skills org
-    initGallery('skills', prepareEntries(skills));
+    const preparedSkills = prepareEntries(skills);
+    initGallery('skills', preparedSkills);
+
+    // Render the tree view (hidden initially)
+    renderSkillTree(preparedSkills);
+
+    // Toggle between timeline and tree views
+    const toggle = document.getElementById('skills-view-toggle');
+    if (toggle) {
+        const skillsSection = document.querySelector('.gallery-section[data-gallery="skills"]');
+        const galleryViewport = skillsSection?.querySelector('.gallery-viewport');
+        const galleryNav = skillsSection?.querySelector('.gallery-nav');
+        const treeViewport = document.getElementById('skills-tree');
+
+        toggle.addEventListener('click', (e) => {
+            const btn = e.target.closest('.view-toggle-btn');
+            if (!btn) return;
+            const view = btn.dataset.view;
+
+            toggle.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (view === 'tree') {
+                if (galleryViewport) galleryViewport.style.display = 'none';
+                if (galleryNav) galleryNav.style.display = 'none';
+                if (treeViewport) treeViewport.style.display = '';
+            } else {
+                if (galleryViewport) galleryViewport.style.display = '';
+                if (galleryNav) galleryNav.style.display = '';
+                if (treeViewport) treeViewport.style.display = 'none';
+            }
+        });
+
+        // Drag-to-scroll for tree viewport
+        if (treeViewport) {
+            let treeDrag = false, treeDragX = 0, treeScrollStart = 0, treeDragMoved = false;
+
+            treeViewport.addEventListener('mousedown', (e) => {
+                treeDrag = true;
+                treeDragMoved = false;
+                treeDragX = e.clientX;
+                treeScrollStart = treeViewport.scrollLeft;
+            });
+            window.addEventListener('mousemove', (e) => {
+                if (!treeDrag) return;
+                const dx = treeDragX - e.clientX;
+                if (Math.abs(dx) > 4) {
+                    treeDragMoved = true;
+                    treeViewport.style.cursor = 'grabbing';
+                }
+                treeViewport.scrollLeft = treeScrollStart + dx;
+            });
+            window.addEventListener('mouseup', () => {
+                if (treeDrag) {
+                    treeDrag = false;
+                    treeViewport.style.cursor = 'grab';
+                }
+            });
+
+            // Touch drag
+            treeViewport.addEventListener('touchstart', (e) => {
+                treeDrag = true;
+                treeDragMoved = false;
+                treeDragX = e.touches[0].clientX;
+                treeScrollStart = treeViewport.scrollLeft;
+            }, { passive: true });
+            treeViewport.addEventListener('touchmove', (e) => {
+                if (!treeDrag) return;
+                const dx = treeDragX - e.touches[0].clientX;
+                if (Math.abs(dx) > 8) treeDragMoved = true;
+                treeViewport.scrollLeft = treeScrollStart + dx;
+            }, { passive: true });
+            treeViewport.addEventListener('touchend', () => { treeDrag = false; });
+
+            // Suppress click after drag on tree cards
+            treeViewport.addEventListener('click', (e) => {
+                if (treeDragMoved) { e.stopPropagation(); treeDragMoved = false; }
+            }, true);
+        }
+    }
 
     // Agents: repos with "agent" in the name (the glue between skills and services)
     renderAgents(prepareEntries(agents));

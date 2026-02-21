@@ -62,6 +62,19 @@ jobs:
               console.log(`Failed to fetch catalog.json: ${e.message}`);
             }
 
+            // Fetch deps.txt from a skill repo (single source of truth for dependencies)
+            async function getDependencies(org, repoName, branch) {
+              try {
+                const { data } = await github.rest.repos.getContent({
+                  owner: org, repo: repoName, path: 'deps.txt', ref: branch
+                });
+                return Buffer.from(data.content, 'base64').toString('utf8')
+                  .trim().split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+              } catch (e) {
+                return [];
+              }
+            }
+
             // Discover trial images from each repo's trials/ directory
             async function getTrialImages(org, repoName, branch) {
               try {
@@ -91,8 +104,12 @@ jobs:
               const repo = sorted[index];
               const meta = catalog[repo.name] || {};
               const trial_images = await getTrialImages(org, repo.name, repo.default_branch);
+              const dependencies = await getDependencies(org, repo.name, repo.default_branch);
               if (trial_images.length > 0) {
                 console.log(`  ${repo.name}: found ${trial_images.length} trial images`);
+              }
+              if (dependencies.length > 0) {
+                console.log(`  ${repo.name}: deps = [${dependencies.join(', ')}]`);
               }
               entries.push({
                 id: String(index + 1).padStart(3, '0'),
@@ -108,7 +125,8 @@ jobs:
                 success_rate: meta.success_rate ?? 0,
                 total_trials: meta.total_trials ?? 0,
                 institutions_tested: meta.institutions_tested ?? 0,
-                trial_images: trial_images
+                trial_images: trial_images,
+                dependencies: dependencies
               });
             }
 
