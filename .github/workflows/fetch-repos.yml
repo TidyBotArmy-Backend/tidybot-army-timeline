@@ -62,43 +62,35 @@ jobs:
               console.log(`Failed to fetch catalog.json: ${e.message}`);
             }
 
-            // Fetch deps.txt from a skill repo (single source of truth for dependencies)
-            async function getDependencies(org, repoName, branch) {
-              try {
-                const { data } = await github.rest.repos.getContent({
-                  owner: org, repo: repoName, path: 'deps.txt', ref: branch
-                });
-                return Buffer.from(data.content, 'base64').toString('utf8')
-                  .trim().split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
-              } catch (e) {
-                return [];
+            // Fetch a text file from a skill repo, checking multiple paths
+            async function fetchTextFile(org, repoName, branch, paths) {
+              for (const path of paths) {
+                try {
+                  const { data } = await github.rest.repos.getContent({
+                    owner: org, repo: repoName, path: path, ref: branch
+                  });
+                  return Buffer.from(data.content, 'base64').toString('utf8')
+                    .trim().split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+                } catch (e) {
+                  // Try next path
+                }
               }
+              return [];
+            }
+
+            // Fetch deps.txt from a skill repo (check scripts/ then root)
+            async function getDependencies(org, repoName, branch) {
+              return fetchTextFile(org, repoName, branch, ['scripts/deps.txt', 'deps.txt']);
             }
 
             // Fetch services.txt from a skill repo (external service dependencies)
             async function getServiceDeps(org, repoName, branch) {
-              try {
-                const { data } = await github.rest.repos.getContent({
-                  owner: org, repo: repoName, path: 'services.txt', ref: branch
-                });
-                return Buffer.from(data.content, 'base64').toString('utf8')
-                  .trim().split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
-              } catch (e) {
-                return [];
-              }
+              return fetchTextFile(org, repoName, branch, ['scripts/services.txt', 'services.txt']);
             }
 
             // Fetch sdk.txt from a skill repo (robot_sdk function usage)
             async function getSdkFunctions(org, repoName, branch) {
-              try {
-                const { data } = await github.rest.repos.getContent({
-                  owner: org, repo: repoName, path: 'sdk.txt', ref: branch
-                });
-                return Buffer.from(data.content, 'base64').toString('utf8')
-                  .trim().split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
-              } catch (e) {
-                return [];
-              }
+              return fetchTextFile(org, repoName, branch, ['scripts/sdk.txt', 'sdk.txt']);
             }
 
             // Discover trial images from each repo's trials/ directory
