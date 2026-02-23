@@ -79,8 +79,10 @@ jobs:
             }
 
             // Fetch deps.txt from a skill repo (check scripts/ then root)
+            // Strip common prefixes (e.g. "tb-") since GitHub repo names don't use them
             async function getDependencies(org, repoName, branch) {
-              return fetchTextFile(org, repoName, branch, ['scripts/deps.txt', 'deps.txt']);
+              const raw = await fetchTextFile(org, repoName, branch, ['scripts/deps.txt', 'deps.txt']);
+              return raw.map(d => d.replace(/^tb-/, ''));
             }
 
             // Fetch services.txt from a skill repo (external service dependencies)
