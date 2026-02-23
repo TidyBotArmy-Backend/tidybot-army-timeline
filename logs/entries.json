@@ -2266,5 +2266,41 @@
     "sha": "430f4a5",
     "repo": "sim",
     "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-23 22:00",
+    "type": "feature",
+    "title": "Use explicit cd/cd.. instead of subshell for asset download",
+    "description": "Commit by tonylitianyu in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "931a828",
+    "repo": "sim",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-23 22:00",
+    "type": "feature",
+    "title": "Run kitchen asset download from within robocasa directory",
+    "description": "Commit by tonylitianyu in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "bbee4c4",
+    "repo": "sim",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-23 22:09",
+    "type": "fix",
+    "title": "Fix eye_in_hand camera position for TidyVerse",
+    "description": "Commit by tonylitianyu in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "449ff61",
+    "repo": "sim",
+    "author": "tonylitianyu"
   }
 ]
