@@ -2230,5 +2230,41 @@
     "sha": "af2d139",
     "repo": "sim",
     "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-23 20:55",
+    "type": "docs",
+    "title": "Add README and requirements.txt",
+    "description": "Commit by tonylitianyu in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "1c0d6f6",
+    "repo": "sim",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-23 21:31",
+    "type": "setup",
+    "title": "Prompt before downloading RoboCasa assets in setup.sh",
+    "description": "Commit by tonylitianyu in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "c91f626",
+    "repo": "sim",
+    "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-23 21:52",
+    "type": "setup",
+    "title": "Add conda install for llvmlite/numba in setup.sh",
+    "description": "Commit by tonylitianyu in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "430f4a5",
+    "repo": "sim",
+    "author": "tonylitianyu"
   }
 ]
