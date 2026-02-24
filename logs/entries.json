@@ -2326,5 +2326,53 @@
     "sha": "2b2e45c",
     "repo": "sim",
     "author": "tonylitianyu"
+  },
+  {
+    "timestamp": "2026-02-24 17:31",
+    "type": "fix",
+    "title": "Fix incorrect SDK docs in READMEs",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "eb6c2c7",
+    "repo": "agent_server",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-24 17:31",
+    "type": "feature",
+    "title": "Update clone URL to TidyBot-Services org",
+    "description": "Commit by Tidybot in arm_franka_service",
+    "files": [
+      "arm_franka_service/"
+    ],
+    "sha": "30f9495",
+    "repo": "arm_franka_service",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-24 17:31",
+    "type": "fix",
+    "title": "Fix getting started install flow",
+    "description": "Commit by Tidybot in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "091af45",
+    "repo": "Tidybot-Universe",
+    "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-24 17:38",
+    "type": "feature",
+    "title": "Merge recording timeline into single endpoint",
+    "description": "Commit by Tidybot in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "ee1cbea",
+    "repo": "agent_server",
+    "author": "Tidybot"
   }
 ]
