@@ -1,173 +1,5 @@
 [
   {
-    "timestamp": "2026-02-05 05:44",
-    "type": "test",
-    "title": "Remove old trajectory.py, add test and utility files",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "a27cbd4",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 18:59",
-    "type": "feature",
-    "title": "Add rewind SDK and smooth arm interpolation",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "fa19a4e",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 19:16",
-    "type": "feature",
-    "title": "Add arm.go_home() method for moving to home position",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "e5f58b0",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 19:16",
-    "type": "fix",
-    "title": "Fix auto-hold to set control mode to JOINT_POSITION",
-    "description": "Commit by Tidybot in franka_interact",
-    "files": [
-      "franka_interact/"
-    ],
-    "sha": "0a7af41",
-    "repo": "franka_interact",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 19:52",
-    "type": "deploy",
-    "title": "Add auto-reset to home on lease release",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "551aae8",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 20:17",
-    "type": "feature",
-    "title": "Add --no-dashboard flag to disable web dashboard GUI",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "8e79699",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-06 06:08",
-    "type": "test",
-    "title": "Add code execution history, lease queue test, and move tests to tests/",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "39c5013",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-06 18:10",
-    "type": "feature",
-    "title": "Hide direct command API from docs, render SDK docs as HTML",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "7367e05",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-07 05:23",
-    "type": "feature",
-    "title": "Add Cartesian arm control, velocity tracking, wrench data, and monitors",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "1fdef3d",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-07 05:23",
-    "type": "feature",
-    "title": "Migrate print statements to logging module",
-    "description": "Commit by Tidybot in gripper_robotiq_service",
-    "files": [
-      "gripper_robotiq_service/"
-    ],
-    "sha": "068ea22",
-    "repo": "gripper_robotiq_service",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-08 05:04",
-    "type": "setup",
-    "title": "Initial commit: Tidybot OpenClaw workspace templates",
-    "description": "Commit by tonylitianyu in tidybot-templates",
-    "files": [
-      "tidybot-templates/"
-    ],
-    "sha": "9e67593",
-    "repo": "tidybot-templates",
-    "author": "tonylitianyu"
-  },
-  {
-    "timestamp": "2026-02-08 05:35",
-    "type": "setup",
-    "title": "added setup",
-    "description": "Commit by tonylitianyu in tidybot-templates",
-    "files": [
-      "tidybot-templates/"
-    ],
-    "sha": "3dc2978",
-    "repo": "tidybot-templates",
-    "author": "tonylitianyu"
-  },
-  {
-    "timestamp": "2026-02-08 05:38",
-    "type": "feature",
-    "title": "Ensure workspace directory exists before copying templates",
-    "description": "Commit by tonylitianyu in tidybot-templates",
-    "files": [
-      "tidybot-templates/"
-    ],
-    "sha": "f9ff2c5",
-    "repo": "tidybot-templates",
-    "author": "tonylitianyu"
-  },
-  {
-    "timestamp": "2026-02-08 05:40",
-    "type": "fix",
-    "title": "Fix config command: use 'set' instead of nonexistent 'patch' subcommand",
-    "description": "Commit by tonylitianyu in tidybot-templates",
-    "files": [
-      "tidybot-templates/"
-    ],
-    "sha": "63eb488",
-    "repo": "tidybot-templates",
-    "author": "tonylitianyu"
-  },
-  {
     "timestamp": "2026-02-08 06:06",
     "type": "fix",
     "title": "Fix setup message: use 'openclaw dashboard' instead of 'openclaw chat'",
@@ -2397,6 +2229,174 @@
     ],
     "sha": "13cf81e",
     "repo": "Tidybot-Universe",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:06",
+    "type": "feature",
+    "title": "Add external GPU services section to docs and guide",
+    "description": "Commit by Yifei Simon Shao in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "f3797be",
+    "repo": "agent_server",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "docs",
+    "title": "Add status note to README",
+    "description": "Commit by Yifei Simon Shao in arm_franka_service",
+    "files": [
+      "arm_franka_service/"
+    ],
+    "sha": "a120978",
+    "repo": "arm_franka_service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "docs",
+    "title": "Add status note to README",
+    "description": "Commit by Yifei Simon Shao in gripper_robotiq_service",
+    "files": [
+      "gripper_robotiq_service/"
+    ],
+    "sha": "d7f7693",
+    "repo": "gripper_robotiq_service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "docs",
+    "title": "Add status note to README",
+    "description": "Commit by Yifei Simon Shao in base_tidybot_service",
+    "files": [
+      "base_tidybot_service/"
+    ],
+    "sha": "fceb59c",
+    "repo": "base_tidybot_service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "docs",
+    "title": "Add status note to README",
+    "description": "Commit by Yifei Simon Shao in camera_realsense_service",
+    "files": [
+      "camera_realsense_service/"
+    ],
+    "sha": "6a45443",
+    "repo": "camera_realsense_service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in yolo-service",
+    "files": [
+      "yolo-service/"
+    ],
+    "sha": "ba5d82c",
+    "repo": "yolo-service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in grounded-sam2-service",
+    "files": [
+      "grounded-sam2-service/"
+    ],
+    "sha": "98395c2",
+    "repo": "grounded-sam2-service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in graspgen-service",
+    "files": [
+      "graspgen-service/"
+    ],
+    "sha": "9c8b811",
+    "repo": "graspgen-service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in foundation-stereo-service",
+    "files": [
+      "foundation-stereo-service/"
+    ],
+    "sha": "3810def",
+    "repo": "foundation-stereo-service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in nav-mapping-service",
+    "files": [
+      "nav-mapping-service/"
+    ],
+    "sha": "550a2e4",
+    "repo": "nav-mapping-service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in realsense-slam",
+    "files": [
+      "realsense-slam/"
+    ],
+    "sha": "c1017af",
+    "repo": "realsense-slam",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in local-obstacle-avoidance-service",
+    "files": [
+      "local-obstacle-avoidance-service/"
+    ],
+    "sha": "8a56d8c",
+    "repo": "local-obstacle-avoidance-service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "feature",
+    "title": "Add service.yaml manifest",
+    "description": "Commit by Yifei Simon Shao in lightweight-grasp-service",
+    "files": [
+      "lightweight-grasp-service/"
+    ],
+    "sha": "23fedc4",
+    "repo": "lightweight-grasp-service",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 05:55",
+    "type": "docs",
+    "title": "Add status note to README",
+    "description": "Commit by Yifei Simon Shao in grounded-sam2",
+    "files": [
+      "grounded-sam2/"
+    ],
+    "sha": "3828588",
+    "repo": "grounded-sam2",
     "author": "Yifei Simon Shao"
   }
 ]
