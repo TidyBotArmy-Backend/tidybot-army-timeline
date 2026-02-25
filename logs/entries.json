@@ -1,17 +1,5 @@
 [
   {
-    "timestamp": "2026-02-08 06:06",
-    "type": "fix",
-    "title": "Fix setup message: use 'openclaw dashboard' instead of 'openclaw chat'",
-    "description": "Commit by tonylitianyu in tidybot-templates",
-    "files": [
-      "tidybot-templates/"
-    ],
-    "sha": "8d5ff6c",
-    "repo": "tidybot-templates",
-    "author": "tonylitianyu"
-  },
-  {
     "timestamp": "2026-02-08 06:22",
     "type": "feature",
     "title": "Add YOLO, display, code executor improvements, and 3cm move tolerance",
@@ -2398,5 +2386,17 @@
     "sha": "3828588",
     "repo": "grounded-sam2",
     "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 22:08",
+    "type": "feature",
+    "title": "Add sim server with Franka, gripper, camera, and base bridges",
+    "description": "Commit by tonylitianyu in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "3ced584",
+    "repo": "sim",
+    "author": "tonylitianyu"
   }
 ]
