@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-02-03 16:59",
-    "type": "feature",
-    "title": "first commit with robotiq",
-    "description": "Commit by tonylitianyu in gripper_robotiq_service",
-    "files": [
-      "gripper_robotiq_service/"
-    ],
-    "sha": "1f98910",
-    "repo": "gripper_robotiq_service",
-    "author": "tonylitianyu"
-  },
-  {
-    "timestamp": "2026-02-04 19:33",
-    "type": "feature",
-    "title": "moved the gripper to gripper server",
-    "description": "Commit by Tidybot in franka_interact",
-    "files": [
-      "franka_interact/"
-    ],
-    "sha": "fe03643",
-    "repo": "franka_interact",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 05:39",
-    "type": "feature",
-    "title": "Add auto-hold feature for active position holding",
-    "description": "Commit by Tidybot in franka_interact",
-    "files": [
-      "franka_interact/"
-    ],
-    "sha": "46bf3a2",
-    "repo": "franka_interact",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-05 05:41",
-    "type": "feature",
-    "title": "Add .gitignore and improve log visibility",
-    "description": "Commit by Tidybot in gripper_robotiq_service",
-    "files": [
-      "gripper_robotiq_service/"
-    ],
-    "sha": "1e4a362",
-    "repo": "gripper_robotiq_service",
-    "author": "Tidybot"
-  },
-  {
     "timestamp": "2026-02-05 05:44",
     "type": "test",
     "title": "Remove old trajectory.py, add test and utility files",
@@ -2374,5 +2326,77 @@
     "sha": "ee1cbea",
     "repo": "agent_server",
     "author": "Tidybot"
+  },
+  {
+    "timestamp": "2026-02-25 03:32",
+    "type": "feature",
+    "title": "Replace hardcoded YOLO IP with YOLO_SERVER_URL env var, add Apache 2.0 license",
+    "description": "Commit by Yifei Simon Shao in agent_server",
+    "files": [
+      "agent_server/"
+    ],
+    "sha": "4bc72c7",
+    "repo": "agent_server",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 03:32",
+    "type": "feature",
+    "title": "Add Apache 2.0 license",
+    "description": "Commit by Yifei Simon Shao in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "ed17951",
+    "repo": "Tidybot-Universe",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 03:32",
+    "type": "feature",
+    "title": "Add Apache 2.0 license",
+    "description": "Commit by Yifei Simon Shao in .github",
+    "files": [
+      ".github/"
+    ],
+    "sha": "827da9b",
+    "repo": ".github",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 03:32",
+    "type": "feature",
+    "title": "Change default port to 8081, replace hardcoded IPs with env vars, add Apache 2.0",
+    "description": "Commit by Yifei Simon Shao in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "11acd4a",
+    "repo": "sim",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 04:57",
+    "type": "deploy",
+    "title": "Replace service agent with deploy-agent architecture",
+    "description": "Commit by Yifei Simon Shao in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "901ce08",
+    "repo": "Tidybot-Universe",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-02-25 04:59",
+    "type": "deploy",
+    "title": "Add deploy-agent code to service-agent-setup",
+    "description": "Commit by Yifei Simon Shao in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "13cf81e",
+    "repo": "Tidybot-Universe",
+    "author": "Yifei Simon Shao"
   }
 ]
