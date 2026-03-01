@@ -1,29 +1,5 @@
 [
   {
-    "timestamp": "2026-02-09 18:51",
-    "type": "feature",
-    "title": "Preserve scroll positions in code execution dashboard during polling",
-    "description": "Commit by Tidybot in agent_server",
-    "files": [
-      "agent_server/"
-    ],
-    "sha": "6d9fd17",
-    "repo": "agent_server",
-    "author": "Tidybot"
-  },
-  {
-    "timestamp": "2026-02-10 03:59",
-    "type": "feature",
-    "title": "Remove tracked __pycache__ files",
-    "description": "Commit by Tidybot in gripper_robotiq_service",
-    "files": [
-      "gripper_robotiq_service/"
-    ],
-    "sha": "ca31322",
-    "repo": "gripper_robotiq_service",
-    "author": "Tidybot"
-  },
-  {
     "timestamp": "2026-02-10 03:59",
     "type": "feature",
     "title": "Add .gitignore and remove tracked __pycache__ files",
@@ -2397,6 +2373,30 @@
     ],
     "sha": "6159ec3",
     "repo": "common",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-03-01 19:22",
+    "type": "feature",
+    "title": "Add simulator docs to OpenClaw workspace templates",
+    "description": "Commit by Yifei Simon Shao in Tidybot-Universe",
+    "files": [
+      "Tidybot-Universe/"
+    ],
+    "sha": "53f6192",
+    "repo": "Tidybot-Universe",
+    "author": "Yifei Simon Shao"
+  },
+  {
+    "timestamp": "2026-03-01 19:22",
+    "type": "feature",
+    "title": "Relax arm convergence tolerances for sim",
+    "description": "Commit by Yifei Simon Shao in sim",
+    "files": [
+      "sim/"
+    ],
+    "sha": "52a4e13",
+    "repo": "sim",
     "author": "Yifei Simon Shao"
   }
 ]
